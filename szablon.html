@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Tytuł wydania: krótko, bez „Prasówka”, bez numeru, bez daty (dopisuje je strona). -->
+  <title>Tytuł wydania, np. najważniejszy temat tygodnia</title>
+  <!-- Jedno lub dwa zdania: o czym jest to wydanie. Widać je w archiwum i w podglądzie linku. -->
+  <meta name="description" content="Jedno–dwa zdania zachęty: co najważniejszego wydarzyło się w tym tygodniu.">
+  <meta name="prasowka:numer" content="1">
+  <meta name="prasowka:okres" content="2026-11-16/2026-11-22">
+  <script src="/prasowka/prasowka.js"></script>
+  <link rel="stylesheet" href="/prasowka/prasowka.css">
+</head>
+<body>
+<main class="wydanie">
+
+  <header class="wydanie-head">
+    <h1>Tytuł wydania, np. najważniejszy temat tygodnia</h1>
+    <p class="lead">Dwa–trzy zdania wstępu: jaki to był tydzień i co jest w tym wydaniu najciekawsze.</p>
+  </header>
+
+  <section class="w-skrocie">
+    <h2>W skrócie</h2>
+    <ul>
+      <li><strong>Matematyka:</strong> jedno zdanie o najważniejszej wiadomości.</li>
+      <li><strong>Nauka:</strong> jedno zdanie.</li>
+      <li><strong>AI:</strong> jedno zdanie.</li>
+    </ul>
+  </section>
+
+  <section id="matematyka">
+    <h2>Matematyka</h2>
+
+    <article class="news wazne">
+      <h3>Nagłówek najważniejszej wiadomości tygodnia</h3>
+      <p class="zrodlo"><a href="https://example.org/artykul">Nazwa źródła</a> · 18 listopada</p>
+      <p>Co się stało, w dwóch–czterech zdaniach. Konkretnie: kto, co, jaki wynik.</p>
+      <p>Opcjonalnie drugi akapit z kontekstem albo prostym wyjaśnieniem idei.</p>
+      <p class="dlaczego">Jedno–dwa zdania: co z tego wynika i dla kogo.</p>
+    </article>
+
+    <article class="news">
+      <h3>Nagłówek zwykłej wiadomości <span class="etykieta">preprint</span></h3>
+      <p class="zrodlo"><a href="https://arxiv.org/abs/0000.00000">arXiv</a> · 17 listopada</p>
+      <p>Treść w dwóch–czterech zdaniach.</p>
+    </article>
+  </section>
+
+  <section id="nauka">
+    <h2>Nauka</h2>
+
+    <article class="news">
+      <h3>Nagłówek</h3>
+      <p class="zrodlo"><a href="https://example.org">Źródło</a> · 19 listopada</p>
+      <p>Treść.</p>
+    </article>
+  </section>
+
+  <section id="ai">
+    <h2>AI i technologia</h2>
+
+    <article class="news">
+      <h3>Nagłówek</h3>
+      <p class="zrodlo"><a href="https://example.org">Źródło</a> · 20 listopada</p>
+      <p>Treść.</p>
+      <p class="dlaczego">Opcjonalnie: dlaczego to ważne.</p>
+    </article>
+  </section>
+
+  <section id="warto-przeczytac">
+    <h2>Warto przeczytać</h2>
+    <ul class="lektury">
+      <li><a href="https://example.org/dlugi-tekst">Tytuł dłuższego tekstu</a> <span class="zrodlo">· Źródło</span><br>
+        Jedno zdanie, dlaczego warto poświęcić na to czas.</li>
+      <li><a href="https://example.org/wyklad">Tytuł wykładu albo filmu</a> <span class="zrodlo">· YouTube, 40 min</span><br>
+        Jedno zdanie.</li>
+    </ul>
+  </section>
+
+  <aside class="cytat">
+    <blockquote>Krótki cytat tygodnia.</blockquote>
+    <p>Autor, gdzie i kiedy to powiedział</p>
+  </aside>
+
+</main>
+</body>
+</html>
