@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Tytuł wydania: krótko, bez „Prasówka”, bez numeru, bez daty (dopisuje je strona). -->
-  <title>Tytuł wydania, np. najważniejszy temat tygodnia</title>
-  <!-- Jedno lub dwa zdania: o czym jest to wydanie. Widać je w archiwum i w podglądzie linku. -->
-  <meta name="description" content="Jedno–dwa zdania zachęty: co najważniejszego wydarzyło się w tym tygodniu.">
+  <!-- Tytuł wydania: krótko, bez „Prasówka”, bez numeru, bez daty (dopisuje je strona). Zwykle z matematyki. -->
+  <title>Tytuł wydania: najważniejszy temat matematyczny tygodnia</title>
+  <!-- Jedno lub dwa zdania o wydaniu. Widać je w archiwum i w podglądzie linku. Zaczynaj od matematyki. -->
+  <meta name="description" content="Jedno–dwa zdania zachęty: co najważniejszego wydarzyło się w matematyce w tym tygodniu.">
   <meta name="prasowka:numer" content="1">
-  <meta name="prasowka:okres" content="2026-11-16/2026-11-22">
+  <meta name="prasowka:okres" content="2026-11-23/2026-11-29">
   <script src="/prasowka/prasowka.js"></script>
   <link rel="stylesheet" href="/prasowka/prasowka.css">
 </head>
@@ -16,65 +16,114 @@
 <main class="wydanie">
 
   <header class="wydanie-head">
-    <h1>Tytuł wydania, np. najważniejszy temat tygodnia</h1>
-    <p class="lead">Dwa–trzy zdania wstępu: jaki to był tydzień i co jest w tym wydaniu najciekawsze.</p>
+    <h1>Tytuł wydania: najważniejszy temat matematyczny tygodnia</h1>
+    <p class="lead">Dwa–trzy zdania: jaki to był tydzień w matematyce i co jest w tym numerze najciekawsze.</p>
   </header>
 
+  <!-- ============ W SKRÓCIE: 3–6 punktów po jednym zdaniu; matematyka pierwsza ============ -->
   <section class="w-skrocie">
     <h2>W skrócie</h2>
     <ul>
       <li><strong>Matematyka:</strong> jedno zdanie o najważniejszej wiadomości.</li>
-      <li><strong>Nauka:</strong> jedno zdanie.</li>
-      <li><strong>AI:</strong> jedno zdanie.</li>
+      <li><strong>AI w matematyce:</strong> jedno zdanie.</li>
+      <li><strong>Polska i świat:</strong> jedno zdanie.</li>
+      <li><strong>Kościół:</strong> jedno zdanie.</li>
     </ul>
   </section>
 
+  <!-- ============ MATEMATYKA: ok. połowa wydania ============ -->
   <section id="matematyka">
     <h2>Matematyka</h2>
 
     <article class="news wazne">
-      <h3>Nagłówek najważniejszej wiadomości tygodnia</h3>
-      <p class="zrodlo"><a href="https://example.org/artykul">Nazwa źródła</a> · 18 listopada</p>
-      <p>Co się stało, w dwóch–czterech zdaniach. Konkretnie: kto, co, jaki wynik.</p>
-      <p>Opcjonalnie drugi akapit z kontekstem albo prostym wyjaśnieniem idei.</p>
-      <p class="dlaczego">Jedno–dwa zdania: co z tego wynika i dla kogo.</p>
+      <h3>Nagłówek tematu tygodnia <span class="etykieta">preprint</span></h3>
+      <p class="zrodlo"><a href="https://arxiv.org/abs/0000.00000">arXiv</a>, <a href="https://www.quantamagazine.org/">Quanta Magazine</a> · 18 listopada</p>
+      <p>Co się stało, konkretnie: kto, co udowodnił, jaki jest wynik.</p>
+      <p>Idea dowodu albo kontekst na poziomie studenta matematyki. Wzory tekstem: x² + y² = z², p ≡ 1 (mod 4).</p>
+      <p class="wzor">ζ(s) = ∑<sub>n≥1</sub> n<sup>−s</sup></p>
+      <p class="dlaczego">Co z tego wynika; co jest jeszcze niepotwierdzone.</p>
     </article>
 
     <article class="news">
-      <h3>Nagłówek zwykłej wiadomości <span class="etykieta">preprint</span></h3>
-      <p class="zrodlo"><a href="https://arxiv.org/abs/0000.00000">arXiv</a> · 17 listopada</p>
-      <p>Treść w dwóch–czterech zdaniach.</p>
-    </article>
-  </section>
-
-  <section id="nauka">
-    <h2>Nauka</h2>
-
-    <article class="news">
-      <h3>Nagłówek</h3>
+      <h3>Nagłówek kolejnej wiadomości</h3>
       <p class="zrodlo"><a href="https://example.org">Źródło</a> · 19 listopada</p>
-      <p>Treść.</p>
+      <p>Treść w 2–4 zdaniach.</p>
     </article>
   </section>
 
+  <!-- ============ AI I TECHNOLOGIA: głównie AI w matematyce; technologia tylko wielkie rzeczy ============ -->
   <section id="ai">
     <h2>AI i technologia</h2>
 
     <article class="news">
-      <h3>Nagłówek</h3>
+      <h3>Nagłówek <span class="etykieta">niepotwierdzone</span></h3>
       <p class="zrodlo"><a href="https://example.org">Źródło</a> · 20 listopada</p>
       <p>Treść.</p>
-      <p class="dlaczego">Opcjonalnie: dlaczego to ważne.</p>
+      <p class="dlaczego">Opcjonalnie.</p>
     </article>
   </section>
 
+  <!-- ============ POLITYKA: 3–5 punktów po jednym zdaniu, neutralnie, bez komentarza ============ -->
+  <section id="polityka">
+    <h2>Polityka w pięciu zdaniach</h2>
+    <ul>
+      <li><strong>Polska:</strong> jedno zdanie. <span class="zrodlo">· <a href="https://example.org">Źródło</a></span></li>
+      <li><strong>Polska:</strong> jedno zdanie. <span class="zrodlo">· <a href="https://example.org">Źródło</a></span></li>
+      <li><strong>Świat:</strong> jedno zdanie. <span class="zrodlo">· <a href="https://example.org">Źródło</a></span></li>
+    </ul>
+  </section>
+
+  <!-- ============ KOŚCIÓŁ: 1–3 krótkie wiadomości, neutralnie ============ -->
+  <section id="kosciol">
+    <h2>Kościół</h2>
+    <ul>
+      <li><strong>Watykan:</strong> jedno–dwa zdania. <span class="zrodlo">· <a href="https://www.vaticannews.va/pl.html">Vatican News</a></span></li>
+      <li><strong>Polska:</strong> jedno–dwa zdania. <span class="zrodlo">· <a href="https://episkopat.pl/">KEP</a></span></li>
+    </ul>
+  </section>
+
+  <!-- ============ DODATKI (strona składa je w osobny blok kart) ============ -->
+
+  <!-- Liczba tygodnia: tylko jeśli naprawdę ciekawa. Liczba po dwukropku w h2 będzie pokazana dużo. -->
+  <section id="liczba-tygodnia">
+    <h2>Liczba tygodnia: 2026,87</h2>
+    <p>Skąd ta liczba i dlaczego jest ciekawa, w kilku zdaniach. <span class="zrodlo">· <a href="https://example.org">Źródło</a></span></p>
+  </section>
+
+  <!-- Zadanie tygodnia: naprawdę trudne (IMO/ISL, finał OM, Putnam A5–B6, Schweitzer). Bez podpowiedzi. -->
+  <section id="zadanie">
+    <h2>Zadanie tygodnia</h2>
+    <details class="rozwiazanie">
+      <summary>Rozwiązanie zadania z nr 0</summary>
+      <p>Pełne rozwiązanie zadania z poprzedniego numeru.</p>
+      <p class="zrodlo">Źródło: IMO Shortlist 2019, N4.</p>
+    </details>
+    <div class="do-rozwiazania">
+      <p>Treść nowego zadania. Źródło podajemy dopiero przy rozwiązaniu w następnym numerze.</p>
+      <p class="bonus">Opcjonalnie trudniejsze uogólnienie.</p>
+      <p class="dla-wytrwalych">Opcjonalnie jedno zdanie dla wytrwałych.</p>
+    </div>
+  </section>
+
+  <!-- Książka tygodnia: na zmianę podręcznik i popularnonaukowa; bez powtórek. -->
+  <section id="ksiazka">
+    <h2>Książka tygodnia</h2>
+    <article class="news">
+      <h3>Autor, „Tytuł książki”</h3>
+      <p class="zrodlo"><a href="https://example.org">Wydawca</a>, rok · <a href="https://example.org">darmowa wersja od autora</a></p>
+      <p><strong>O czym jest.</strong> …</p>
+      <p><strong>Dla kogo.</strong> Wymagania wstępne.</p>
+      <p><strong>Dlaczego warto.</strong> …</p>
+      <p><strong>Jak czytać.</strong> Od których rozdziałów zacząć, co pominąć.</p>
+    </article>
+  </section>
+
+  <!-- Warto przeczytać: 1–2 naprawdę dobre teksty pisane przez ludzi. Lepiej pominąć niż dać przeciętny. -->
   <section id="warto-przeczytac">
     <h2>Warto przeczytać</h2>
     <ul class="lektury">
-      <li><a href="https://example.org/dlugi-tekst">Tytuł dłuższego tekstu</a> <span class="zrodlo">· Źródło</span><br>
-        Jedno zdanie, dlaczego warto poświęcić na to czas.</li>
-      <li><a href="https://example.org/wyklad">Tytuł wykładu albo filmu</a> <span class="zrodlo">· YouTube, 40 min</span><br>
-        Jedno zdanie.</li>
+      <li><a href="https://example.org/esej">Tytuł eseju</a> <span class="zrodlo">· Autor, Źródło</span> <span class="czas">15 min</span><br>
+        Jedno zdanie, dlaczego warto.</li>
     </ul>
   </section>
 

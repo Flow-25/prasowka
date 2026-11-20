@@ -1,11 +1,19 @@
 # Prasówka
 
-Cotygodniowy przegląd wiadomości z **matematyki, nauki i AI**, po polsku.
-Publikowany na **https://campusflorum.pl/prasowka/**.
+Cotygodniowa prasówka, **przede wszystkim o matematyce**, po polsku.
+Publikowana na **https://campusflorum.pl/prasowka/**.
 
 To repozytorium zawiera **tylko treść**. Wygląd (nagłówek strony, czcionki,
-motyw jasny/ciemny, spis działów, nawigacja między wydaniami, stopka) dokłada
-strona campusflorum.pl. Wydanie to prosty plik HTML w ustalonym formacie.
+motyw jasny/ciemny, spis działów, nawigacja między wydaniami, stopka, układ
+działów i dodatków) dokłada strona campusflorum.pl przez
+`/prasowka/prasowka.css` i `/prasowka/prasowka.js`. Wydanie to prosty plik
+HTML w ustalonym formacie, bez własnych stylów i skryptów.
+
+## Czytelnik
+
+Prowadzący i ewentualnie jego znajomi: student, miłośnik matematyki. Zna
+matematykę na poziomie akademickim, lubi konkret, nie lubi lania wody. Czyta
+w niedzielę przy kawie, często na telefonie.
 
 ## Jak to działa
 
@@ -14,27 +22,48 @@ push na main  →  serwer: cron co 30 min `git pull`  →  campusflorum.pl/praso
                  (/var/www/prasowka, tylko do odczytu dla nginx)
 ```
 
-- `wydania/RRRR-MM-DD.html` — jedno wydanie, np. `wydania/2026-11-23.html`;
-  adres: `https://campusflorum.pl/prasowka/2026-11-23/`.
+- `wydania/RRRR-MM-DD.html` — jedno wydanie, np. `wydania/2026-11-29.html`;
+  adres: `https://campusflorum.pl/prasowka/2026-11-29/`.
 - Archiwum `/prasowka/` samo znajduje wszystkie pliki o takiej nazwie
-  i odczytuje z nich tytuł, opis, numer i okres. Nie ma żadnego spisu do
+  i odczytuje z nich tytuł, opis, numer i okres. Nie ma spisu do
   aktualizowania ani kroku budowania.
 - Nowe wydanie pojawia się na stronie najpóźniej 30 minut po pushu.
 
 ## Dodanie nowego wydania
 
 1. Skopiuj `szablon.html` do `wydania/RRRR-MM-DD.html`, gdzie data to **dzień
-   publikacji** (zwykle dzień po końcu omawianego tygodnia).
-2. Wypełnij nagłówek `<head>` (patrz niżej) i treść.
+   publikacji** (zwykle niedziela kończąca omawiany tydzień).
+2. Wypełnij `<head>` (patrz niżej) i treść. Komentarze `<!-- … -->` z szablonu
+   możesz usunąć.
 3. Sprawdź listę kontrolną na końcu tego pliku.
 4. `git add wydania/RRRR-MM-DD.html && git commit -m "Prasówka nr N (RRRR-MM-DD)" && git push`
 
 Jedno wydanie na tydzień, jeden plik na wydanie. Nie zmieniaj nazw już
-opublikowanych plików (zepsułoby to linki). Poprawki literówek i błędów
-w starych wydaniach są w porządku.
+opublikowanych plików (zepsułoby to linki). Poprawki błędów w starych
+wydaniach są w porządku.
 
-**Szkic:** plik, którego nazwa zaczyna się od `_` (np. `wydania/_2026-11-30.html`),
+**Szkic:** plik, którego nazwa zaczyna się od `_` (np. `wydania/_2026-11-29.html`),
 nie jest wyświetlany w archiwum.
+
+## Tematyka i proporcje — najważniejsze
+
+| Obszar | Udział | Co tam trafia |
+|---|---|---|
+| **Matematyka** | ok. 45–55% | nowe twierdzenia i dowody, rozwiązane problemy, ważne preprinty (arXiv), nagrody, olimpiady, ludzie i historie z matematyki |
+| **AI w matematyce** | ok. 20–30% | dowody z udziałem AI, Lean i formalizacja, problemy Erdősa, benchmarki matematyczne, spory w środowisku o rolę AI |
+| Technologia i inne odkrycia | najwyżej ok. 10% | tylko naprawdę duże rzeczy: przełom w informatyce teoretycznej, kryptografii, fizyce, komputerach kwantowych; nie zwykłe newsy o produktach i firmach |
+| Polityka | absolutne minimum | 3–5 jednozdaniowych punktów: Polska + 1–2 sprawy ze świata; neutralnie, bez ocen |
+| Kościół katolicki | szczypta | 1–3 krótkie wiadomości: Watykan i papież, Kościół w Polsce (KEP, nominacje, dokumenty); neutralnie |
+
+- W razie wątpliwości wybierz matematykę. Słaby tydzień w matematyce to powód,
+  żeby sięgnąć głębiej (blogi Tao, Vakila, Kalaia, Quanta, arXiv), a nie żeby
+  dopychać politykę czy technologię.
+- **Temat tygodnia** (`news wazne`) prawie zawsze pochodzi z matematyki albo
+  AI w matematyce.
+- Polityka i Kościół nigdy nie są dłuższe niż matematyka i nie trafiają na
+  początek wydania (także w `lead` i `description` matematyka idzie pierwsza).
+- Przy newsach o Anthropic/Claude zaznacz konflikt interesów (prasówkę pisze
+  Claude) i pisz chłodno.
 
 ## Nagłówek `<head>`
 
@@ -42,116 +71,193 @@ Kopiuj z szablonu; zmieniaj tylko cztery wartości:
 
 | Pole | Przykład | Uwagi |
 |---|---|---|
-| `<title>` | `Matematyczny dowód od AI i nowy rekord w liczbach pierwszych` | Tytuł wydania. Bez „Prasówka”, numeru i daty — strona dopisze je sama. Do ~80 znaków. Taki sam jak `<h1>`. |
-| `description` | `Model językowy pomógł zamknąć stary problem Erdősa, a …` | 1–2 zdania, do ~200 znaków. Widać je w archiwum i w podglądzie linku. |
-| `prasowka:numer` | `12` | Kolejny numer: poprzedni + 1. Pierwsze wydanie ma numer 1. |
-| `prasowka:okres` | `2026-11-16/2026-11-22` | Omawiany tydzień, od poniedziałku do niedzieli, w formacie `RRRR-MM-DD/RRRR-MM-DD`. |
+| `<title>` | `Dwa dowody hipotezy Riemanna jednego dnia` | Tytuł wydania, taki sam jak `<h1>`. Bez „Prasówka”, numeru i daty — strona dopisze je sama. Do ~80 znaków. |
+| `description` | `Jednego dnia ogłoszono dwa dowody…` | 1–2 zdania, do ~200 znaków; widać je w archiwum i w podglądzie linku. |
+| `prasowka:numer` | `12` | Poprzedni numer + 1. |
+| `prasowka:okres` | `2026-11-23/2026-11-29` | Omawiany tydzień, poniedziałek–niedziela, `RRRR-MM-DD/RRRR-MM-DD`. |
 
 Linie `<script src="/prasowka/prasowka.js">` i
 `<link rel="stylesheet" href="/prasowka/prasowka.css">` muszą zostać
-**bez zmian** i `<head>` ma być krótki (całość mieści się w pierwszych 8 KB pliku,
-z tego archiwum czyta metadane).
+**bez zmian**, a `<head>` ma być krótki (archiwum czyta metadane
+z pierwszych 8 KB pliku).
 
-## Treść `<body>`
+## Układ wydania
 
 Całe `<body>` to jeden element `<main class="wydanie">`. **Nie dodawaj**
-nagłówka strony, stopki, nawigacji, „okruszków” ani daty — wstawia je strona.
+nagłówka strony, stopki, nawigacji, spisu treści, numeru ani daty — wstawia
+je strona. Działy idą w tej kolejności; dział bez treści pomiń.
 
-Struktura, w tej kolejności:
+| # | Element | Rola na stronie |
+|---|---|---|
+| 1 | `header.wydanie-head`: `<h1>` + `p.lead` (2–3 zdania: jaki był tydzień) | nagłówek |
+| 2 | `section.w-skrocie`: `<h2>W skrócie</h2>` + `<ul>` 3–6 punktów po jednym zdaniu | ramka TL;DR |
+| 3 | `section#matematyka` — `<h2>Matematyka</h2>` | **główna kolumna** |
+| 4 | `section#ai` — `<h2>AI i technologia</h2>` | **główna kolumna** |
+| 5 | `section#polityka` — `<h2>Polityka w pięciu zdaniach</h2>` | skromny serwis: mały krój, zwarta lista |
+| 6 | `section#kosciol` — `<h2>Kościół</h2>` | skromny serwis |
+| 7 | `section#liczba-tygodnia` | blok „Dodatki”: karta z dużą liczbą |
+| 8 | `section#zadanie` | blok „Dodatki”: ramka „do rozwiązania” |
+| 9 | `section#ksiazka` | blok „Dodatki”: karta polecajki |
+| 10 | `section#warto-przeczytac` | blok „Dodatki”: lista z czasem czytania |
+| 11 | `aside.cytat` (opcjonalnie) | cytat tygodnia |
+| 12 | `p.od-redakcji` (opcjonalnie) | np. sprostowanie do poprzedniego numeru |
 
-1. **`<header class="wydanie-head">`** — `<h1>` (tytuł, taki sam jak `<title>`)
-   i `<p class="lead">` (2–3 zdania wstępu: jaki to był tydzień).
-2. **`<section class="w-skrocie">`** z `<h2>W skrócie</h2>` i listą `<ul>` 3–6
-   punktów po jednym zdaniu. Kto przeczyta tylko to, ma wiedzieć, co się działo.
-3. **Działy** — `<section id="…">` z `<h2>`. Standardowe, w tej kolejności:
+Strona sama grupuje działy (Matematyka · AI | Polityka · Kościół | Dodatki),
+buduje z nich spis na górze i składa dodatki w osobny blok. Używaj dokładnie
+tych `id` — po nich rozpoznaje dział. Wyjątkowo można dodać własny dział
+główny (np. `section#nauka`, `<h2>Nauka</h2>`) między AI a Polityką.
 
-   | `id` | `<h2>` | Co tam trafia |
-   |---|---|---|
-   | `matematyka` | Matematyka | nowe wyniki, rozwiązane problemy, nagrody, olimpiady, ciekawe preprinty |
-   | `nauka` | Nauka | fizyka, biologia, astronomia, informatyka teoretyczna… |
-   | `ai` | AI i technologia | nowe modele, badania, narzędzia, regulacje, AI w nauce i matematyce |
-   | `warto-przeczytac` | Warto przeczytać | dłuższe teksty, wykłady, filmy na weekend |
-
-   Dział bez wiadomości po prostu pomiń. Wyjątkowo można dodać własny dział
-   (np. `id="uczelnie"`, `<h2>Uczelnie i nauka w Polsce</h2>`), byle przed
-   „Warto przeczytać”. Spis działów na górze strony tworzy się sam z `<h2>`.
-
-4. Opcjonalnie na końcu **`<aside class="cytat">`** — cytat tygodnia
-   (`<blockquote>` + `<p>` z autorem i kontekstem, bez myślnika na początku).
-5. Opcjonalnie **`<p class="od-redakcji">`** — krótka uwaga na koniec
-   (np. sprostowanie do poprzedniego wydania).
-
-### Wiadomość
+### Wiadomość (Matematyka, AI)
 
 ```html
 <article class="news">
   <h3>Nagłówek: konkretny, informacyjny, bez clickbaitu</h3>
   <p class="zrodlo"><a href="https://…">Nazwa źródła</a> · 18 listopada</p>
-  <p>Co się stało, w 2–4 zdaniach.</p>
+  <p>Co się stało, w 2–4 zdaniach. Opcjonalnie drugi akapit z ideą dowodu.</p>
   <p class="dlaczego">Co z tego wynika (opcjonalnie, 1–2 zdania).</p>
 </article>
 ```
 
-- `class="news wazne"` — **temat tygodnia**, wyróżniona ramką. Najwyżej jedna
-  na wydanie, jako pierwsza wiadomość w swoim dziale.
-- `<span class="etykieta">preprint</span>` w `<h3>` — mała etykieta, np.
-  `preprint`, `recenzowane`, `zapowiedź`, `open source`. Oszczędnie.
-- `p.dlaczego` — strona sama dopisuje przed nim pogrubione „Dlaczego to ważne.”
-  — nie pisz tego ręcznie.
+- `class="news wazne"` — **temat tygodnia**, wyraźnie wyróżniony. Dokładnie
+  jeden na wydanie, pierwszy w dziale Matematyka (wyjątkowo w AI).
+- `<span class="etykieta">…</span>` w `<h3>`: `preprint`, `zapowiedź`,
+  `niepotwierdzone`, `recenzowane`, `Lean`. Rzeczy niepotwierdzone **zawsze**
+  oznaczaj.
+- `p.dlaczego` — strona sama dopisuje pogrubione „Dlaczego to ważne.”
 - W `p.zrodlo` może być kilka źródeł: `<a>Quanta</a>, <a>arXiv</a> · 18 listopada`.
-- Data w `p.zrodlo` to dzień publikacji źródła, słownie, bez roku.
+  Data: dzień publikacji źródła, słownie, bez roku.
 
-### Warto przeczytać
+### Polityka i Kościół
+
+Krótko, neutralnie, bez ocen i komentarzy. Lista, każdy punkt jednym–dwoma
+zdaniami ze źródłem:
+
+```html
+<section id="polityka">
+  <h2>Polityka w pięciu zdaniach</h2>
+  <ul>
+    <li><strong>Polska:</strong> jedno zdanie. <span class="zrodlo">· <a href="https://…">PAP</a></span></li>
+  </ul>
+</section>
+```
+
+Kościół tak samo (`<strong>Watykan:</strong>`, `<strong>Polska:</strong>`).
+Jeśli wiadomość wymaga 2–3 zdań, można użyć `article.news` — strona pokaże ją
+w tym dziale małym krojem.
+
+### Dodatki
+
+**Liczba tygodnia** — tylko jeśli naprawdę ciekawa. Liczba po dwukropku w `<h2>`
+zostanie pokazana dużym krojem:
+
+```html
+<section id="liczba-tygodnia">
+  <h2>Liczba tygodnia: 2026,87</h2>
+  <p>Skąd ta liczba, w kilku zdaniach. <span class="zrodlo">· <a href="https://…">Źródło</a></span></p>
+</section>
+```
+
+**Zadanie tygodnia** — naprawdę trudne: trudniejsze zadania olimpijskie
+(IMO/ISL, finał OM), Putnam A5–A6/B5–B6, Miklós Schweitzer, trudne zadania ze
+studiów magisterskich. Kilka kroków i co najmniej jedna nieoczywista idea;
+coś w rodzaju „p² − 1 dzieli się przez 24” jest zdecydowanie za proste.
+Zmieniaj dziedziny z tygodnia na tydzień. **Bez podpowiedzi** (najwyżej jedno
+zdanie „dla wytrwałych”). Źródło zadania podajesz dopiero przy rozwiązaniu
+w następnym numerze.
+
+```html
+<section id="zadanie">
+  <h2>Zadanie tygodnia</h2>
+  <details class="rozwiazanie">
+    <summary>Rozwiązanie zadania z nr 11</summary>
+    <p>Pełne rozwiązanie.</p>
+    <p class="zrodlo">Źródło: IMO Shortlist 2019, N4.</p>
+  </details>
+  <div class="do-rozwiazania">
+    <p>Treść nowego zadania.</p>
+    <p class="bonus">Opcjonalnie trudniejsza wersja.</p>
+    <p class="dla-wytrwalych">Opcjonalnie jedno zdanie dla wytrwałych.</p>
+  </div>
+</section>
+```
+
+Rozwiązanie jest domyślnie zwinięte, żeby nie psuć zabawy. W pierwszym
+numerze (nie ma czego rozwiązywać) pomiń `details`.
+
+**Książka tygodnia** — jedna pozycja, na zmianę podręcznik i książka
+popularnonaukowa. Nie powtarzaj książek z poprzednich wydań (sprawdź
+`grep -h -A2 'id="ksiazka"' wydania/*.html`).
+
+```html
+<section id="ksiazka">
+  <h2>Książka tygodnia</h2>
+  <article class="news">
+    <h3>Autor, „Tytuł”</h3>
+    <p class="zrodlo"><a href="https://…">Wydawca</a>, rok · <a href="https://…">darmowa wersja od autora</a></p>
+    <p><strong>O czym jest.</strong> …</p>
+    <p><strong>Dla kogo.</strong> Wymagania wstępne.</p>
+    <p><strong>Dlaczego warto.</strong> …</p>
+    <p><strong>Jak czytać.</strong> Od których rozdziałów zacząć, co pominąć.</p>
+  </article>
+</section>
+```
+
+Link do darmowej wersji tylko, jeśli jest legalna (od autora lub wydawcy).
+
+**Warto przeczytać** — 1–2 naprawdę dobre, dłuższe teksty pisane przez
+ludzi (eseje, reportaże, felietony). Lepiej pominąć dział, niż dać przeciętny
+tekst. Czas czytania w `span.czas` — strona pokaże go po prawej:
 
 ```html
 <ul class="lektury">
-  <li><a href="https://…">Tytuł tekstu</a> <span class="zrodlo">· Źródło, 25 min</span><br>
+  <li><a href="https://…">Tytuł</a> <span class="zrodlo">· Autor, Źródło</span> <span class="czas">15 min</span><br>
     Jedno zdanie, dlaczego warto.</li>
 </ul>
 ```
 
-### Dozwolone elementy
+**Cytat tygodnia** (opcjonalnie): `<aside class="cytat">` z `<blockquote>`
+i `<p>` z autorem i kontekstem (bez myślnika na początku).
 
-`h1` (tylko w nagłówku), `h2` (tylko jako tytuł działu), `h3` (tytuł
-wiadomości), `p`, `ul`, `ol`, `li`, `a`, `strong`, `em`, `code`, `br`,
-`blockquote`, `figure` + `img` + `figcaption`, `span.etykieta`,
-`span.zrodlo`, `sub`, `sup`.
+### Wzory i dozwolone elementy
 
-**Nie używaj:** atrybutów `style`, elementów `<style>` i `<script>`,
-zewnętrznych arkuszy stylów i skryptów, ramek `iframe`, `<h4>`–`<h6>`,
-tabel (zrób listę), emoji w nagłówkach.
+Wzory zapisuj tekstem: `<sub>`, `<sup>` i znaki Unicode (x², n ≥ 3, π, ∑,
+√2, ℝ, ≡). Bez LaTeX-a. Wzór w osobnym wierszu: `<p class="wzor">…</p>`
+(strona złoży go krojem matematycznym, wyśrodkowany).
 
-Wzory: prosty zapis tekstowy z `<sub>`/`<sup>` i znakami Unicode
-(x², n ≥ 3, π, ∑, √2). Bez LaTeX-a.
+Dozwolone: `h1` (tylko w nagłówku), `h2` (tylko tytuł działu), `h3` (tytuł
+wiadomości), `p`, `ul`, `ol`, `li`, `a`, `strong`, `em`, `code`, `br`, `sub`,
+`sup`, `blockquote`, `details`/`summary` (tylko w zadaniu),
+`figure` + `img` + `figcaption`, oraz klasy opisane wyżej.
 
-Obrazki: tylko gdy naprawdę coś pokazują, z licencją pozwalającą na użycie.
-Plik w `wydania/img/RRRR-MM-DD-nazwa.webp` (do ~300 KB), w HTML ścieżka
-bezwzględna: `<img src="/prasowka/wydania/img/2026-11-23-nazwa.webp" alt="…">`,
-zawsze z opisem `alt` i `<figcaption>` ze źródłem.
+**Nie używaj:** atrybutów `style`, `<style>`, `<script>`, zewnętrznych
+arkuszy i skryptów, `iframe`, `h4`–`h6`, tabel (zrób listę), emoji
+w nagłówkach.
+
+Obrazki tylko, gdy naprawdę coś pokazują i licencja pozwala: plik
+`wydania/img/RRRR-MM-DD-nazwa.webp` (do ~300 KB), w HTML ścieżka bezwzględna
+`/prasowka/wydania/img/…`, zawsze z `alt` i `<figcaption>` ze źródłem.
 
 ## Styl pisania
 
-- **Po polsku**, rzeczowo, jak dobry dziennikarz naukowy: zrozumiale dla
-  studenta matematyki/informatyki, bez upraszczania do fałszu.
-- **5–12 wiadomości** w wydaniu (bez „Warto przeczytać”). Lepiej mniej
-  i ciekawiej niż wszystko.
-- Każda wiadomość ma **co najmniej jedno źródło** z linkiem; najlepiej
-  pierwotne (artykuł, preprint, ogłoszenie), nie tylko omówienie.
-- Fakty tylko ze źródeł. Liczby, nazwiska, daty sprawdzone. Jeśli coś jest
-  niepotwierdzone (preprint bez recenzji, przeciek), napisz to wprost.
-- Tylko wiadomości z omawianego tygodnia (wyjątek: „Warto przeczytać”).
+- **Po polsku**, rzeczowo, jak dobry dziennikarz naukowy: dla kogoś, kto zna
+  matematykę akademicką. Konkret zamiast ogólników; idea dowodu lepsza niż
+  przymiotniki.
+- Każdy fakt ze źródła z linkiem, najlepiej pierwotnego (artykuł, preprint,
+  ogłoszenie). Liczby, nazwiska i daty sprawdzone. Nie zmyślaj faktów,
+  cytatów ani linków.
+- Tylko wiadomości z omawianego tygodnia (wyjątek: dodatki).
 - Nazwy własne w oryginale; terminy angielskie przy pierwszym użyciu
   w nawiasie, jeśli polski odpowiednik jest mało znany.
-- Typografia: polskie cudzysłowy „…”, półpauza – w zakresach i jako myślnik,
-  twarda spacja niepotrzebna.
+- Typografia: polskie cudzysłowy „…”, półpauza – w zakresach i jako myślnik.
 
 ## Lista kontrolna przed pushem
 
-- [ ] Nazwa pliku `wydania/RRRR-MM-DD.html`, data to dzień publikacji.
-- [ ] `<title>` = `<h1>`; `description` wypełnione; numer = poprzedni + 1;
-      okres poprawny.
-- [ ] Linie `<script>` i `<link>` w `<head>` bez zmian.
-- [ ] `<body>` to tylko `<main class="wydanie">`; brak `style=`, `<style>`, `<script>`.
-- [ ] Jest „W skrócie”; każda wiadomość ma `p.zrodlo` z działającym linkiem.
-- [ ] Najwyżej jedno `news wazne`.
-- [ ] Plik jest poprawnym HTML-em (domknięte znaczniki, `&amp;` w adresach z `&`).
+- [ ] Nazwa pliku `wydania/RRRR-MM-DD.html`; numer = poprzedni + 1; okres poprawny.
+- [ ] `<title>` = `<h1>`; `description` wypełnione, zaczyna od matematyki.
+- [ ] Linie `<script>` i `<link>` w `<head>` bez zmian; brak `style=`, `<style>`, `<script>`.
+- [ ] Matematyka + AI w matematyce to wyraźnie większość tekstu; polityka ≤ 5 zdań.
+- [ ] Dokładnie jedno `news wazne`, z matematyki albo AI w matematyce.
+- [ ] Każda wiadomość ma źródło z działającym linkiem; niepotwierdzone oznaczone.
+- [ ] Zadanie trudne, bez podpowiedzi; jest rozwiązanie zadania z poprzedniego numeru (ze źródłem).
+- [ ] Książka nie powtarza się.
+- [ ] `id` działów dokładnie jak w tabeli; plik jest poprawnym HTML-em (`&amp;` w adresach z `&`).

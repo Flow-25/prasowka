@@ -1,19 +1,26 @@
 # Prasówka — instrukcje dla Claude'a
 
-Tu powstaje cotygodniowa prasówka (matematyka, nauka, AI; po polsku)
-publikowana na https://campusflorum.pl/prasowka/.
+Tu powstaje cotygodniowa prasówka publikowana na https://campusflorum.pl/prasowka/.
+**Przede wszystkim matematyka** (ok. połowa), potem AI w matematyce; polityka
+i Kościół tylko w krótkim serwisie.
 
-**Pełny format wydania i zasady są w `README.md` — przeczytaj go w całości,
+**Pełny format, proporcje i zasady są w `README.md` — przeczytaj go w całości,
 zanim cokolwiek napiszesz.** Wzór do skopiowania: `szablon.html`.
 
 Najważniejsze:
 
 - Nowe wydanie = jeden nowy plik `wydania/RRRR-MM-DD.html` (data publikacji),
-  skopiowany z `szablon.html`. Numer = numer poprzedniego wydania + 1
-  (sprawdź `ls wydania/` i `prasowka:numer` w najnowszym pliku).
+  skopiowany z `szablon.html`. Numer = poprzedni + 1 (sprawdź `ls wydania/`
+  i `prasowka:numer` w najnowszym pliku).
+- Działy i ich `id` dokładnie jak w README (`matematyka`, `ai`, `polityka`,
+  `kosciol`, `liczba-tygodnia`, `zadanie`, `ksiazka`, `warto-przeczytac`) —
+  po nich strona układa wydanie.
 - Zmieniasz tylko treść i cztery pola w `<head>`. Żadnych własnych stylów
   ani skryptów; wygląd daje strona.
-- Każda wiadomość ma źródło z linkiem. Nie zmyślaj faktów, cytatów ani linków.
+- Każdy fakt ze źródła z linkiem. Nie zmyślaj faktów, cytatów ani linków.
+  Przy Anthropic/Claude zaznacz konflikt interesów.
+- Zadanie tygodnia: naprawdę trudne, bez podpowiedzi; w następnym numerze
+  rozwiązanie ze źródłem. Książki się nie powtarzają.
 - Nie ruszaj `szablon.html`, `README.md` ani tego pliku, chyba że prowadzący
   o to poprosi.
 - Commit: `Prasówka nr N (RRRR-MM-DD)`, push na `main`. Strona odświeża się
