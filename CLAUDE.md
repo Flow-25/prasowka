@@ -2,7 +2,8 @@
 
 Tu powstaje cotygodniowa prasówka publikowana na https://campusflorum.pl/prasowka/.
 **Przede wszystkim matematyka** (ok. połowa), potem AI w matematyce; polityka
-i Kościół tylko w krótkim serwisie.
+(3–5 spraw z wyjaśnieniem) i Kościół w serwisie, ze źródeł katolickich,
+konserwatywnych i tradycyjnych (lista w README).
 
 **Pełny format, proporcje i zasady są w `README.md` — przeczytaj go w całości,
 zanim cokolwiek napiszesz.** Wzór do skopiowania: `szablon.html`.

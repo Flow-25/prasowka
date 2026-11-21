@@ -52,15 +52,15 @@ nie jest wyświetlany w archiwum.
 | **Matematyka** | ok. 45–55% | nowe twierdzenia i dowody, rozwiązane problemy, ważne preprinty (arXiv), nagrody, olimpiady, ludzie i historie z matematyki |
 | **AI w matematyce** | ok. 20–30% | dowody z udziałem AI, Lean i formalizacja, problemy Erdősa, benchmarki matematyczne, spory w środowisku o rolę AI |
 | Technologia i inne odkrycia | najwyżej ok. 10% | tylko naprawdę duże rzeczy: przełom w informatyce teoretycznej, kryptografii, fizyce, komputerach kwantowych; nie zwykłe newsy o produktach i firmach |
-| Polityka | absolutne minimum | 3–5 jednozdaniowych punktów: Polska + 1–2 sprawy ze świata; neutralnie, bez ocen |
-| Kościół katolicki | szczypta | 1–3 krótkie wiadomości: Watykan i papież, Kościół w Polsce (KEP, nominacje, dokumenty); neutralnie |
+| Polityka | ok. 10–15% | 3–5 najważniejszych spraw (głównie Polska, 1–2 ze świata), każda wyjaśniona tak, żeby było wiadomo, o co chodzi, z linkiem do dłuższego tekstu; źródła katolickie i konserwatywne (patrz niżej) |
+| Kościół katolicki | szczypta | 1–3 krótkie wiadomości: Watykan i papież, Kościół w Polsce (KEP, nominacje, dokumenty); źródła tradycyjne (patrz niżej) |
 
 - W razie wątpliwości wybierz matematykę. Słaby tydzień w matematyce to powód,
   żeby sięgnąć głębiej (blogi Tao, Vakila, Kalaia, Quanta, arXiv), a nie żeby
   dopychać politykę czy technologię.
 - **Temat tygodnia** (`news wazne`) prawie zawsze pochodzi z matematyki albo
   AI w matematyce.
-- Polityka i Kościół nigdy nie są dłuższe niż matematyka i nie trafiają na
+- Polityka i Kościół razem nigdy nie są dłuższe niż matematyka i nie trafiają na
   początek wydania (także w `lead` i `description` matematyka idzie pierwsza).
 - Przy newsach o Anthropic/Claude zaznacz konflikt interesów (prasówkę pisze
   Claude) i pisz chłodno.
@@ -93,7 +93,7 @@ je strona. Działy idą w tej kolejności; dział bez treści pomiń.
 | 2 | `section.w-skrocie`: `<h2>W skrócie</h2>` + `<ul>` 3–6 punktów po jednym zdaniu | ramka TL;DR |
 | 3 | `section#matematyka` — `<h2>Matematyka</h2>` | **główna kolumna** |
 | 4 | `section#ai` — `<h2>AI i technologia</h2>` | **główna kolumna** |
-| 5 | `section#polityka` — `<h2>Polityka w pięciu zdaniach</h2>` | skromny serwis: mały krój, zwarta lista |
+| 5 | `section#polityka` — `<h2>Polityka</h2>` | serwis: krótkie wiadomości `article.news` |
 | 6 | `section#kosciol` — `<h2>Kościół</h2>` | skromny serwis |
 | 7 | `section#liczba-tygodnia` | blok „Dodatki”: karta z dużą liczbą |
 | 8 | `section#zadanie` | blok „Dodatki”: ramka „do rozwiązania” |
@@ -129,21 +129,43 @@ główny (np. `section#nauka`, `<h2>Nauka</h2>`) między AI a Polityką.
 
 ### Polityka i Kościół
 
-Krótko, neutralnie, bez ocen i komentarzy. Lista, każdy punkt jednym–dwoma
-zdaniami ze źródłem:
+**Polityka** — 3–5 najważniejszych spraw tygodnia, głównie z Polski, 1–2 ze
+świata. Każda jako `article.news`: 2–4 zdania, z których czytelnik zrozumie,
+o co chodzi (kto, co, dlaczego to istotne, jaki jest kontekst), i link do
+dłuższego tekstu, żeby mógł doczytać:
 
 ```html
 <section id="polityka">
-  <h2>Polityka w pięciu zdaniach</h2>
-  <ul>
-    <li><strong>Polska:</strong> jedno zdanie. <span class="zrodlo">· <a href="https://…">PAP</a></span></li>
-  </ul>
+  <h2>Polityka</h2>
+  <article class="news">
+    <h3>Konkretny nagłówek</h3>
+    <p class="zrodlo"><a href="https://…">Gość Niedzielny</a>, <a href="https://…">Do Rzeczy</a> · 19 listopada</p>
+    <p>O co chodzi, w 2–4 zdaniach.</p>
+    <p class="dlaczego">Opcjonalnie: co z tego wynika.</p>
+  </article>
 </section>
 ```
 
-Kościół tak samo (`<strong>Watykan:</strong>`, `<strong>Polska:</strong>`).
-Jeśli wiadomość wymaga 2–3 zdań, można użyć `article.news` — strona pokaże ją
-w tym dziale małym krojem.
+**Kościół** — 1–3 krótkie wiadomości, lista (`<strong>Watykan:</strong>`,
+`<strong>Polska:</strong>`) albo `article.news`, jeśli sprawa wymaga 2–3 zdań.
+
+**Źródła dla polityki i Kościoła.** Prowadzący chce rzetelnych informacji
+z perspektywy katolickiej i konserwatywnej, bez lewicowej publicystyki.
+Fakty zawsze sprawdzone; opinie i komentarze tylko jako wyraźnie przypisane
+źródłu („jak pisze Do Rzeczy…”).
+
+- Polityka, preferowane: Gość Niedzielny, Niedziela, Nasz Dziennik, Do Rzeczy,
+  wPolityce / Sieci, PCh24, Fronda, Rzeczpospolita; suche fakty także z PAP
+  i stron rządowych. Świat: Catholic News Agency, National Catholic Register,
+  Catholic World Report, ewentualnie agencje (Reuters, AP) dla samych faktów.
+- Kościół, preferowane źródła tradycyjne: Do Rzeczy, PCh24, Nasz Dziennik,
+  Niedziela, Gość Niedzielny, Radio Maryja / TV Trwam, National Catholic
+  Register, Catholic World Report, LifeSiteNews, Rorate Caeli; teksty
+  pierwotne z vatican.va, Vatican News i episkopat.pl.
+- Nie korzystaj z mediów lewicowych i lewicowo-liberalnych (np. Gazeta
+  Wyborcza, OKO.press, Krytyka Polityczna, Newsweek Polska), a w sprawach
+  Kościoła także z mediów modernistycznych (np. Tygodnik Powszechny, Więź,
+  National Catholic Reporter).
 
 ### Dodatki
 
@@ -255,9 +277,10 @@ Obrazki tylko, gdy naprawdę coś pokazują i licencja pozwala: plik
 - [ ] Nazwa pliku `wydania/RRRR-MM-DD.html`; numer = poprzedni + 1; okres poprawny.
 - [ ] `<title>` = `<h1>`; `description` wypełnione, zaczyna od matematyki.
 - [ ] Linie `<script>` i `<link>` w `<head>` bez zmian; brak `style=`, `<style>`, `<script>`.
-- [ ] Matematyka + AI w matematyce to wyraźnie większość tekstu; polityka ≤ 5 zdań.
+- [ ] Matematyka + AI w matematyce to wyraźnie większość tekstu; polityka 3–5 spraw, każda z linkiem do dłuższego tekstu.
 - [ ] Dokładnie jedno `news wazne`, z matematyki albo AI w matematyce.
 - [ ] Każda wiadomość ma źródło z działającym linkiem; niepotwierdzone oznaczone.
+- [ ] Polityka i Kościół ze źródeł z listy (katolickich, konserwatywnych, tradycyjnych).
 - [ ] Zadanie trudne, bez podpowiedzi; jest rozwiązanie zadania z poprzedniego numeru (ze źródłem).
 - [ ] Książka nie powtarza się.
 - [ ] `id` działów dokładnie jak w tabeli; plik jest poprawnym HTML-em (`&amp;` w adresach z `&`).
