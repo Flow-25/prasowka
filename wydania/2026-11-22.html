@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hipoteza Riemanna: Lean mówi „tak”, matematycy pytają „dlaczego”</title>
+  <meta name="description" content="Społeczność Lean potwierdza formalny dowód hipotezy Riemanna zrobiony z Claude’em, a w 940-stronicowym ludzkim dowodzie GRH znaleziono pierwsze luki. Do tego rosyjskie rakiety w Polsce i spór o konta TK.">
+  <meta name="prasowka:numer" content="1">
+  <meta name="prasowka:okres" content="2026-11-16/2026-11-22">
+  <script src="/prasowka/prasowka.js"></script>
+  <link rel="stylesheet" href="/prasowka/prasowka.css">
+</head>
+<body>
+<main class="wydanie">
+
+  <header class="wydanie-head">
+    <h1>Hipoteza Riemanna: Lean mówi „tak”, matematycy pytają „dlaczego”</h1>
+    <p class="lead">Dwa dni po piątkowych ogłoszeniach obraz jest wyraźniejszy. Formalny dowód Leventa Alpöge’a, zrobiony z Claude’em, przeszedł w sobotę kolejne niezależne sprawdzenia w Lean, ale nadal nikt nie potrafi go opowiedzieć po ludzku. Ludzki dowód Alessandra Masulla okazał się niedokończonym szkicem, w którym czytelnicy w ciągu kilku godzin wskazali pierwsze luki. Poza matematyką: rosyjskie rakiety, które spadły w Polsce, i spór o to, kto kieruje Trybunałem Konstytucyjnym.</p>
+  </header>
+
+  <section class="w-skrocie">
+    <h2>W skrócie</h2>
+    <ul>
+      <li><strong>Matematyka:</strong> według społeczności Lean 17 mln linii kodu Alpöge’a naprawdę dowodzi hipotezy Riemanna i GRH dla L-funkcji Dirichleta, na trzech standardowych aksjomatach. Ludzkiego wyjaśnienia dowodu wciąż nie ma.</li>
+      <li><strong>Matematyka:</strong> 940-stronicowy szkic Masulla, „The Music of the Primes”, ma puste rozdziały, a Vakil przyznał, że czytelnicy (także z pomocą AI) zgłosili w nim problemy.</li>
+      <li><strong>AI:</strong> Alpöge i Tristan Buckmaster twierdzą też, że dostali osobliwość bez wymuszenia w jednym z wariantów Naviera–Stokesa. To jeszcze niesprawdzone.</li>
+      <li><strong>Polska:</strong> trzy rosyjskie obiekty, w tym rakieta Ch-101, spadły na Lubelszczyźnie i Podkarpaciu, a NBP zamroził konta Trybunału Konstytucyjnego.</li>
+      <li><strong>Kościół:</strong> papież zatwierdził cud prowadzący do kanonizacji bł. Zdenki Schelingovej, słowackiej zakonnicy więzionej przez komunistów.</li>
+    </ul>
+  </section>
+
+  <section id="matematyka">
+    <h2>Matematyka</h2>
+
+    <article class="news wazne">
+      <h3>Lean potwierdza: kod Alpöge’a dowodzi hipotezy Riemanna. Matematyki za nim nikt jeszcze nie rozumie <span class="etykieta">Lean</span></h3>
+      <p class="zrodlo"><a href="https://www.unite.ai/lean-and-mathlib-communities-certify-claude-assisted-riemann-proof/">Unite.AI</a>, <a href="https://casrai.org/news/anthropic-levent-alpoge-claude-lean-riemann-hypothesis-claim-2026">CASRAI</a>, <a href="https://math.mit.edu/~drew/grh/">raport A. Sutherlanda (MIT)</a>, <a href="https://www.quantamagazine.org/update/169569/">Quanta Magazine</a>, <a href="https://www.claymath.org/millennium/riemann-hypothesis/">Clay Mathematics Institute</a> · 20–21 listopada</p>
+      <p>W sobotę 21 listopada społeczności Lean i Mathlib ogłosiły, że biblioteka Leventa Alpöge’a „poprawnie formułuje i dowodzi hipotezy Riemanna”. Pod oświadczeniem podpisały się Lean FRO i Mathlib Initiative. Biblioteka liczy 175 187 plików i ok. 17 mln linii. Sprawdzono trzy rzeczy. Po pierwsze, czy kod się kompiluje: robiły to dziesiątki osób, pierwsi byli Andrew Sutherland z MIT i Simon DeDeo z CMU. Po drugie, czy twierdzenie końcowe to naprawdę hipoteza Riemanna: osobny plik „challenge” zawiera samo sformułowanie oparte wyłącznie na Mathlibie, a narzędzia Comparator i con-leche potwierdziły zgodność. Po trzecie, eksport dowodu przepuszczono przez kilka niezależnych jąder (kernel): oficjalne jądro Lean, nanoda napisane w Ruście, lean4lean, con-leche i con-ron.</p>
+      <p>Sformułowanie jest standardowe: każde zero ζ(s) poza trywialnymi zerami w −2, −4, −6, … ma część rzeczywistą 1/2. Osobny warunek s ≠ 1 wynika z tego, że Mathlib przypisuje biegunowi umowną wartość. Według Sutherlanda pięć głównych twierdzeń zależy tylko od trzech aksjomatów z rdzenia Lean (patrz „Liczba tygodnia”). Zakres obejmuje też uogólnioną hipotezę Riemanna (GRH) dla wszystkich L-funkcji Dirichleta, czyli dla każdego modułu i każdego charakteru. Nie obejmuje funkcji dzeta Dedekinda, L-funkcji Heckego ani ogólnych L-funkcji automorficznych. Sutherland uczciwie opisał ograniczenia: część sprawdzeń (domyślny i „paranoiczny” tryb jądra, pełny przebieg Comparatora) jeszcze trwała, a kompilacja szła na niezabezpieczonych maszynach w chmurze, bez porównania z przebiegiem w piaskownicy.</p>
+      <p>Tekstu dla ludzi nadal brak, jest tylko czterostronicowa notatka „Remark”. Maksym Radziwiłł powiedział, że notatka zawiera „bezsensowne stwierdzenia” (<em>nonsensical statements</em>), i przypomniał, że matematyka ma odpowiadać na pytanie „dlaczego?”, a ten dowód tego nie robi. Innego zdania jest Filippo Nuccio z Uniwersytetu Jeana Monneta: według niego argument „zawiera w zasadzie całą teorię liczb ostatnich 50 lat”. Instytut Claya na swojej stronie wciąż oznacza problem jako nierozwiązany. Jego regulamin wymaga publikacji i dwóch lat ogólnej akceptacji przed przyznaniem nagrody.</p>
+      <p class="dlaczego">Pierwszy raz w historii wielki otwarty problem ma dowód, którego poprawność jest lepiej sprawdzona niż jego zrozumienie. Teraz pytanie brzmi, czy ludzie zdołają z tych 17 mln linii wydobyć ideę. Uwaga redakcyjna: Alpöge pracuje w Anthropic, a tę prasówkę pisze Claude, więc mamy tu konflikt interesów. Dlatego trzymamy się tego, co sprawdzili ludzie spoza firmy.</p>
+    </article>
+
+    <article class="news">
+      <h3>Ludzki dowód GRH: 940 stron, puste rozdziały i pierwsze zgłoszone luki <span class="etykieta">niepotwierdzone</span></h3>
+      <p class="zrodlo"><a href="https://math216.wordpress.com/2026/11/20/hurried-announcement-alessandro-masullo-grh/">blog Raviego Vakila</a>, <a href="https://xenospectrum.com/en/masullo-riemann-proof-draft-release/">XenoSpectrum</a>, <a href="https://the-decoder.com/hours-after-anthropic-claims-a-claude-proof-of-the-riemann-hypothesis-stanford-releases-an-all-human-competing-draft/">The Decoder</a>, <a href="https://officechai.com/ai/hours-after-alpoges-ai-assisted-riemann-hypothesis-proof-ams-president-ravi-vakil-rushes-out-a-rival-all-human-proof-by-alessandro-masullo/">OfficeChai</a> · 20–21 listopada</p>
+      <p>Szkic Alessandra Masulla, opublikowany przez Vakila, ma 940 stron i nosi tytuł „The Music of the Primes”. Masullo zrobił doktorat w Stanfordzie u Briana Conrada i nad szkicem pracował około dwunastu lat. Cel jest ambitniejszy niż w Lean: GRH dla L-funkcji Heckego wszystkich unitarnych charakterów Heckego nad wszystkimi ciałami liczbowymi. Tekst nie jest jednak skończony. Podrozdziały 13.1 i 13.2 to same nagłówki, a przypis na s. 522 mówi, że trzeba jeszcze dopisać sformułowanie Twierdzenia 13.3.1.2 i dowody głównych twierdzeń. Masullo miał spędzić w Stanfordzie jeszcze rok na dopracowaniu tekstu. Piątkowe ogłoszenie Alpöge’a sprawiło, że szkic upubliczniono od razu.</p>
+      <p>W połowie października Masullo wysłał zarys dowodu Peterowi Sarnakowi, a w niedzielę przed publikacją spędził z nim i z Conradem cztery i pół godziny w IAS. Około ośmiu godzin po pierwszym wpisie Vakil dodał aktualizację: kilka osób zgłosiło problemy w dowodzie, część z nich znaleziono „z pomocą różnych modeli AI”. Vakil zastrzegł też, że nie wypowiada się o poprawności strategii dowodu, a każdy problem musi zostać rozwiązany ku zadowoleniu środowiska, zanim dowód zostanie przyjęty. Conrad powiedział „Scientific American”, że ocena metody „będzie wymagała dalszych postępów w trwających poprawkach”.</p>
+      <p class="dlaczego">Jak napisał na X dziennikarz Kevin Hartnett, Masullo „myślał, że ma więcej czasu”. Ironia tygodnia: dowód reklamowany jako „całkowicie ludzki” jest teraz sprawdzany w dużej części z pomocą maszyn.</p>
+    </article>
+
+    <article class="news">
+      <h3>Co właściwie daje GRH dla charakterów Dirichleta, a czego nie daje</h3>
+      <p class="zrodlo"><a href="https://en.wikipedia.org/wiki/Generalized_Riemann_hypothesis">Wikipedia: Generalized Riemann hypothesis</a>, <a href="https://www.claymath.org/millennium/riemann-hypothesis/">Clay Mathematics Institute</a> · tło</p>
+      <p>Jeśli formalny dowód się utrzyma, z tego, co zweryfikowano, wynika m.in. wersja twierdzenia o liczbach pierwszych w postępach arytmetycznych z błędem rzędu √x·log²x. Wynika też deterministyczny test pierwszości Millera: wystarczy sprawdzić podstawy a &lt; 2(ln n)² (oszacowanie Bacha). Najmniejsza liczba niebędąca resztą kwadratową modulo p jest wtedy rzędu (log p)², jak pokazał Ankeny.</p>
+      <p>Część znanych „warunkowych” twierdzeń potrzebuje jednak więcej. Dowód hipotezy Artina o pierwiastkach pierwotnych, który Hooley przeprowadził w 1967 roku przy założeniu GRH, opiera się na funkcjach dzeta Dedekinda ciał Kummera ℚ(ζ<sub>q</sub>, a<sup>1/q</sup>). Te funkcje leżą poza zakresem sprawdzonym w Lean. Tu właśnie mógłby się przydać szerszy, choć niedokończony szkic Masulla.</p>
+    </article>
+  </section>
+
+  <section id="ai">
+    <h2>AI i technologia</h2>
+
+    <article class="news">
+      <h3>Jak powstał dowód: „lifty theta” i model, który „tańczył przy mecie” <span class="etykieta">niepotwierdzone</span></h3>
+      <p class="zrodlo"><a href="https://www.quantamagazine.org/update/169564/">Quanta Magazine</a>, <a href="https://www.unite.ai/lean-and-mathlib-communities-certify-claude-assisted-riemann-proof/">Unite.AI</a>, <a href="https://alpo.ge/remark.pdf">notatka „Remark”</a> · 20–21 listopada</p>
+      <p>Według Alpöge’a wynik był gotowy w poniedziałek 16 listopada, a ogłoszenie odkładał kilka dni. Najpierw prowadził model od przykładów-zabawek w stronę celu. Pod koniec, jak pisze, Claude go wyprzedził: „Claude flew, and danced, and sparkled near that finish line”. Jako przykład podaje pomysł modelu, by sumę z funkcją von Mangoldta długości X kontrolować łańcuchem liftów theta (<em>theta lifts</em>) tej samej długości. Próby wygenerowania wersji czytelnej dla ludzi dały ponad 250 tys. stron, więc Alpöge ich nie publikował. Uważa, że dowód „zostanie ogromnie uproszczony, pewnie natychmiast”.</p>
+      <p>Anthropic do piątku nie wydał oficjalnego komunikatu. Opis roli modelu pochodzi wyłącznie od Alpöge’a, a certyfikat Lean dotyczy poprawności kodu, nie tego, kto wymyślił argument.</p>
+      <p class="dlaczego">Konflikt interesów: piszemy o modelu, który pisze tę prasówkę. Cytaty zostawiamy w oryginale i bez komentarza.</p>
+    </article>
+
+    <article class="news">
+      <h3>Alpöge i Buckmaster: osobliwość bez siły zewnętrznej w wariancie Naviera–Stokesa <span class="etykieta">niepotwierdzone</span></h3>
+      <p class="zrodlo"><a href="https://www.quantamagazine.org/update/169564/">Quanta Magazine</a>, <a href="https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/">wpis Terence’a Tao</a>, <a href="https://cims.nyu.edu/~tristanb/statement.pdf">oświadczenie T. Buckmastera</a> · 20 listopada</p>
+      <p>Tego samego dnia Alpöge i Tristan Buckmaster (NYU) ogłosili, że w pewnym wariancie równań Naviera–Stokesa osobliwość może powstać bez zewnętrznego wymuszenia. Kod jest na GitHubie. Tao zatytułował swój piątkowy wpis „Unforced Euler singularity, unforced Navier–Stokes singularity, and the generalized Riemann hypothesis”.</p>
+      <p>Kontekst: we wrześniu ta sama para pokazała wybuch w skończonym czasie z gładkim wymuszeniem dla porowatych ośrodków nieściśliwych, równań Boussinesqa i trójwymiarowego Eulera. Te wyniki zweryfikowano w Lean 22 sierpnia. Buckmaster przypisywał wtedy cały program Diego Córdobie i Luisowi Martínezowi-Zoroi i pisał wprost, że jego tekst o Eulerze to „AI slop”, za który przeprasza.</p>
+      <p class="dlaczego">Problem milenijny dotyczy klasycznych równań Naviera–Stokesa bez wymuszenia. Na razie nie wiadomo, jak daleko od niego jest ogłoszony wariant. Czekamy na opinie specjalistów od mechaniki płynów.</p>
+    </article>
+  </section>
+
+  <section id="polityka">
+    <h2>Polityka</h2>
+
+    <article class="news">
+      <h3>Dwie rosyjskie rakiety i dron spadły w Polsce. NATO zbiera się w poniedziałek</h3>
+      <p class="zrodlo"><a href="https://www.gosc.pl/doc/9969251.Szef-MON-potwierdza-spadly-rakiety-i-dron">Gość Niedzielny (PAP)</a>, <a href="https://www.rp.pl/konflikty-zbrojne/art45519451-kosiniak-kamysz-na-terytorium-polski-spadly-dwie-rakiety-i-dron">Rzeczpospolita</a>, <a href="https://rp.pl/polityka/art45523411-rada-nato-zbierze-sie-ws-rosyjskich-rakiet-nad-polska">Rzeczpospolita</a> · 20–21 listopada</p>
+      <p>Podczas nocnego ataku na Ukrainę (20 listopada) trzy rosyjskie obiekty wleciały na ok. 3 minuty nad Polskę i spadły: rakieta Ch-101 w Nowym Lipowcu koło Biłgoraja, druga rakieta w Rudniku nad Sanem i najpewniej dron odrzutowy w Mołodyczu. Nikt nie zginął. Myśliwce nie strzelały, bo według Dowództwa Operacyjnego nie były spełnione warunki, m.in. przez bardzo złą pogodę. W sobotę Mark Rutte zapewnił w Warszawie, że NATO „będzie bronić każdego centymetra polskiego terytorium”, a na poniedziałek zwołano Radę Północnoatlantycką.</p>
+      <p class="dlaczego">Polska nie powołała się na art. 4, ale prosi o dodatkowe siły dla misji Eastern Sentry, w tym o kolejny AWACS.</p>
+    </article>
+
+    <article class="news">
+      <h3>NBP zamroził konta Trybunału Konstytucyjnego: kto ma prawo nim kierować?</h3>
+      <p class="zrodlo"><a href="https://www.rp.pl/banki/art45493011-nbp-wstrzymuje-platnosci-trybunalu-konstytucyjnego-powodem-spor-o-kierownictwo-tk">Rzeczpospolita</a>, <a href="https://www.rp.pl/banki/art45520351-nbp-pisze-do-swieczkowskiego-i-korwin-piotrowskiej-daje-czas-do-27-listopada">Rzeczpospolita</a> · 16–21 listopada</p>
+      <p>Od 16 listopada NBP nie realizuje płatności z rachunków TK, bo dostał sprzeczne dokumenty o tym, kto reprezentuje Trybunał: prezes Bogdan Święczkowski, wsparty uchwałami Sądu Najwyższego z 10 i 18 listopada, czy sędzia Anna Korwin-Piotrowska, która 30 października „zawiesiła” Święczkowskiego i sędziego Sochańskiego. Bank wezwał obie strony, by do 27 listopada wystąpiły do sądu o rozstrzygnięcie. Zarząd NBP nazywa decyzję „całkowicie apolityczną”, rząd szuka obejścia.</p>
+          </article>
+
+    <article class="news">
+      <h3>Domański wicepremierem po miesiącu przeciągania liny z Pałacem</h3>
+      <p class="zrodlo"><a href="https://niedziela.pl/artykul/130087/Prezydent-Nawrocki-dokonal-zmian-w-skladzie-Rady-Ministrow">Niedziela (prezydent.pl)</a>, <a href="https://www.rp.pl/polityka/art45506801-jedno-popoludnie-dwa-sprzeczne-komunikaty-co-sie-dzieje-w-palacu-prezydenckim">Rzeczpospolita</a> · 19–20 listopada</p>
+      <p>Prezydent Karol Nawrocki na wniosek premiera Tuska powołał ministra finansów Andrzeja Domańskiego na wicepremiera, a Agnieszkę Bartol-Saurel na ministrę funduszy w miejsce Katarzyny Pełczyńskiej-Nałęcz. Wniosek czekał od 20 października; szef Kancelarii Zbigniew Bogucki wiązał zwłokę ze sporem o TK.</p>
+    </article>
+
+    <article class="news">
+      <h3>Świat: deklaracja z Shenzhen bez słowa o Ukrainie</h3>
+      <p class="zrodlo"><a href="https://www.wpxi.com/news/world/takeaways-historic/DQDEWDR7KM37HO4KPLORDLO66Y/">AP</a>, <a href="https://www.al-monitor.com/originals/2026/11/trump-xi-and-putin-release-peace-declaration-unprecedented-summit">Reuters (Al-Monitor)</a> · 19–20 listopada</p>
+      <p>Pierwszy trójstronny szczyt Trumpa, Xi i Putina zakończył się „deklaracją pokojową”: wojny nuklearnej „nie można wygrać i nigdy nie wolno jej prowadzić”, będzie dialog o ryzyku jądrowym (bez terminów i bez traktatu, o który zabiegał Trump), reforma ONZ i sprzeciw wobec „nadużyć jurysdykcji” MTK. O Ukrainie dokument milczy. Kanclerz Merz ostrzegł, że „format jałtański nie przyniesie pokoju”.</p>
+    </article>
+  </section>
+
+  <section id="kosciol">
+    <h2>Kościół</h2>
+    <ul>
+      <li><strong>Watykan:</strong> 21 listopada Leon XIV zatwierdził cud za wstawiennictwem bł. Zdenki Schelingovej (1916–1955), co otwiera drogę do jej kanonizacji. Ta słowacka siostra miłosierdzia pomogła uciec uwięzionym księżom, za co komuniści skazali ją na 12 lat. Zwolniona z powodu wyniszczenia, zmarła kilka miesięcy później w Trnawie. Uznano też męczeństwo ks. José Gómeza Llora i 54 towarzyszy zamordowanych w Hiszpanii w latach 1936–1939. <span class="zrodlo">· <a href="https://www.niedziela.pl/artykul/130106/Watykan-ogloszono-dekrety-dotyczace-dwoch-cudow-meczenstwa-i-cnot-heroicznych">Niedziela</a>, <a href="https://www.radiomaryja.pl/informacje/nowa-swieta-56-blogoslawionych-14-latka-czcigodna-sluzebnica/">Radio Maryja</a></span></li>
+      <li><strong>Watykan:</strong> w przeddzień uroczystości Chrystusa Króla, obchodzonej w diecezjach jako Światowy Dzień Młodzieży, papież spotkał się z 6 tys. młodych z Lacjum. Mówił im, że wiara to „przede wszystkim przyjaźń z Chrystusem”. <span class="zrodlo">· <a href="https://www.vaticannews.va/pl/papiez/news/2026-11/papiez-do-mlodziezy-z-lazio-spotkanie-mlodych.html">Vatican News</a></span></li>
+      <li><strong>Polska:</strong> 6 grudnia, w drugą niedzielę Adwentu, przypada XXVII Dzień Modlitwy i Pomocy Materialnej Kościołowi na Wschodzie. KEP przedstawi go 26 listopada z udziałem bp. Serhija Kippy z Kijowa. <span class="zrodlo">· <a href="https://episkopat.pl/doc/255636.26-listopada-godz-11-00-Konferencja-prasowa-zapowiadajaca-XXVII">episkopat.pl</a></span></li>
+    </ul>
+  </section>
+
+  <section id="liczba-tygodnia">
+    <h2>Liczba tygodnia: 3</h2>
+    <p>Tyle aksjomatów, według raportu Sutherlanda, potrzebuje pięć głównych twierdzeń z biblioteki Alpöge’a. To <code>propext</code> (zdania równoważne są równe), <code>Classical.choice</code> (aksjomat wyboru, a z nim logika klasyczna) i <code>Quot.sound</code> (elementy utożsamione w ilorazie są równe). Wszystkie trzy należą do standardowego rdzenia Lean, którego używa cały Mathlib, i poza nimi nie zadeklarowano żadnego dodatkowego aksjomatu. Ma to znaczenie, bo najprostszy sposób na „dowód” w Lean to przemycenie jako aksjomatu tego, co chce się udowodnić. Siedemnaście milionów linii kodu, a pod spodem trzy linijki założeń. <span class="zrodlo">· <a href="https://www.unite.ai/lean-and-mathlib-communities-certify-claude-assisted-riemann-proof/">Unite.AI</a>, <a href="https://casrai.org/news/anthropic-levent-alpoge-claude-lean-riemann-hypothesis-claim-2026">CASRAI</a></span></p>
+  </section>
+
+  <section id="zadanie">
+    <h2>Zadanie tygodnia</h2>
+    <details class="rozwiazanie">
+      <summary>Rozwiązanie zadania z nr 0</summary>
+      <p>Mamy p² − 1 = (p − 1)(p + 1). Liczba p &gt; 3 jest nieparzysta, więc p − 1 i p + 1 to dwie kolejne liczby parzyste. Jedna z nich dzieli się przez 4, czyli iloczyn dzieli się przez 8. Spośród trzech kolejnych liczb p − 1, p, p + 1 jedna dzieli się przez 3, a nie jest nią p, bo p jest pierwsza i większa od 3. Zatem 3 dzieli (p − 1)(p + 1), a ponieważ NWD(3, 8) = 1, liczba p² − 1 dzieli się przez 24.</p>
+      <p><strong>Bonus.</strong> 2027 jest liczbą pierwszą. Złożona liczba n ma dzielnik pierwszy ≤ √n, a 45² = 2025 &lt; 2027 &lt; 46², więc wystarczy sprawdzić 14 liczb pierwszych od 2 do 43. Żadna z nich nie dzieli 2027, np. 2027 = 7·289 + 4 = 11·184 + 3 = 13·155 + 12 = 43·47 + 6.</p>
+      <p class="zrodlo">Źródło: zadania klasyczne (folklor).</p>
+    </details>
+    <div class="do-rozwiazania">
+      <p>Dla liczby całkowitej dodatniej k niech A(k) oznacza liczbę nieparzystych dzielników d liczby k, które spełniają d &lt; √(2k). Wykaż, że szereg</p>
+      <p class="wzor">∑<sub>k≥1</sub> (−1)<sup>k−1</sup> A(k) / k</p>
+      <p>jest zbieżny, i oblicz jego sumę.</p>
+    </div>
+  </section>
+
+  <section id="ksiazka">
+    <h2>Książka tygodnia</h2>
+    <article class="news">
+      <h3>John Derbyshire, „Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics”</h3>
+      <p class="zrodlo"><a href="https://nap.nationalacademies.org/catalog/10532/prime-obsession-bernhard-riemann-and-the-greatest-unsolved-problem-in">Joseph Henry Press</a>, 2003 · <a href="https://www.nationalacademies.org/read/10532">do czytania za darmo online od wydawcy</a></p>
+      <p><strong>O czym jest.</strong> O pracy Riemanna z 1859 roku „O liczbie liczb pierwszych mniejszych od danej wielkości” i o wszystkim, co z niej wyrosło. Rozdziały nieparzyste to matematyka: twierdzenie o liczbach pierwszych, iloczyn Eulera, przedłużenie analityczne, wzór jawny, funkcja Möbiusa, związki z mechaniką kwantową. Rozdziały parzyste to historia: Gauss, Dirichlet, Riemann w Getyndze, Hilbert, Hardy i Littlewood, Montgomery i Dyson.</p>
+      <p><strong>Dla kogo.</strong> Napisana z myślą o czytelniku bez wykształcenia matematycznego, ale student matematyki nie będzie się nudził: rozdziały „matematyczne” naprawdę liczą, a nie tylko opowiadają. Wystarczy analiza z pierwszego roku.</p>
+      <p><strong>Dlaczego warto.</strong> W tygodniu, w którym hipoteza Riemanna być może przestała być otwarta, warto wiedzieć, co dokładnie zostało udowodnione i dlaczego przez 167 lat było to takie trudne. Derbyshire tłumaczy to lepiej niż większość podręczników.</p>
+      <p><strong>Jak czytać.</strong> Po kolei. Kto zna już twierdzenie o liczbach pierwszych, może przejrzeć rozdziały 1–4 i zacząć od piątego („Riemann’s Zeta Function”). Najlepsze są rozdziały 13 („The Argument Ant and the Value Ant”), 18 i 21 („The Error Term”). Na deser dodatek „The Riemann Hypothesis in Song”.</p>
+    </article>
+  </section>
+
+  <section id="warto-przeczytac">
+    <h2>Warto przeczytać</h2>
+    <ul class="lektury">
+      <li><a href="https://www.claymath.org/wp-content/uploads/2022/05/riemann.pdf">The Riemann Hypothesis (Official Problem Description)</a> <span class="zrodlo">· Enrico Bombieri, Clay Mathematics Institute</span> <span class="czas">40 min</span><br>
+        Oficjalny opis problemu milenijnego autorstwa medalisty Fieldsa: zwięzła, gęsta i nadal najlepsza na kilkunastu stronach mapa tego, co wiadomo o RH i co z niej wynika. Teraz, gdy trzeba ocenić, czego właściwie dowiódł Lean, przydaje się bardziej niż kiedykolwiek.</li>
+    </ul>
+  </section>
+
+  <aside class="cytat">
+    <blockquote>The object of mathematics as the rest of science is really the question “why?” and this doesn’t answer it at all.</blockquote>
+    <p>Maksym Radziwiłł o formalnym dowodzie hipotezy Riemanna Leventa Alpöge’a, cytowany przez Quanta Magazine, 20 listopada 2026</p>
+  </aside>
+
+</main>
+</body>
+</html>
