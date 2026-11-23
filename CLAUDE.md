@@ -16,6 +16,9 @@ Najważniejsze:
 - Działy i ich `id` dokładnie jak w README (`matematyka`, `ai`, `polityka`,
   `kosciol`, `liczba-tygodnia`, `zadanie`, `ksiazka`, `warto-przeczytac`) —
   po nich strona układa wydanie.
+- Każde wydanie ma też wersję angielską `wydania/en/RRRR-MM-DD.html`:
+  wierne tłumaczenie, ta sama struktura i `id` (szczegóły w README,
+  „Wersja angielska”). Commit obejmuje oba pliki.
 - Zmieniasz tylko treść i cztery pola w `<head>`. Żadnych własnych stylów
   ani skryptów; wygląd daje strona.
 - Każdy fakt ze źródła z linkiem. Nie zmyślaj faktów, cytatów ani linków.

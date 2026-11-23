@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Riemann hypothesis: Lean says “yes”, mathematicians ask “why”</title>
+  <meta name="description" content="The Lean community certifies the Claude-assisted formal proof of the Riemann hypothesis, while first gaps are reported in a 940-page human GRH draft. Plus Russian missiles in Poland and a fight over the Constitutional Tribunal’s accounts.">
+  <meta name="prasowka:numer" content="1">
+  <meta name="prasowka:okres" content="2026-11-16/2026-11-22">
+  <script src="/prasowka/prasowka.js"></script>
+  <link rel="stylesheet" href="/prasowka/prasowka.css">
+</head>
+<body>
+<main class="wydanie">
+
+  <header class="wydanie-head">
+    <h1>Riemann hypothesis: Lean says “yes”, mathematicians ask “why”</h1>
+    <p class="lead">Two days after Friday’s announcements the picture is clearer. Levent Alpöge’s formal proof, made with Claude, passed further independent checks in Lean on Saturday, yet nobody can explain it in human terms. Alessandro Masullo’s human proof turned out to be an unfinished draft in which readers flagged the first gaps within hours. Outside mathematics: Russian missiles that fell in Poland and a fight over who runs the Constitutional Tribunal.</p>
+  </header>
+
+  <section class="w-skrocie">
+    <h2>In brief</h2>
+    <ul>
+      <li><strong>Mathematics:</strong> according to the Lean community, Alpöge’s 17 million lines of code really do prove the Riemann hypothesis and GRH for Dirichlet L-functions, using three standard axioms. A human explanation of the proof is still missing.</li>
+      <li><strong>Mathematics:</strong> Masullo’s 940-page draft, “The Music of the Primes”, has empty chapters, and Vakil acknowledged that readers (some helped by AI) reported problems in it.</li>
+      <li><strong>AI:</strong> Alpöge and Tristan Buckmaster also claim an unforced singularity in a variant of the Navier–Stokes equations. Not yet checked.</li>
+      <li><strong>Poland:</strong> three Russian objects, including a Kh-101 missile, fell in the Lublin and Subcarpathian regions, and the National Bank of Poland froze the Constitutional Tribunal’s accounts.</li>
+      <li><strong>Church:</strong> the Pope approved a miracle opening the way to the canonization of Blessed Zdenka Schelingová, a Slovak nun imprisoned by the communists.</li>
+    </ul>
+  </section>
+
+  <section id="matematyka">
+    <h2>Mathematics</h2>
+
+    <article class="news wazne">
+      <h3>Lean confirms: Alpöge’s code proves the Riemann hypothesis. Nobody yet understands the mathematics behind it <span class="etykieta">Lean</span></h3>
+      <p class="zrodlo"><a href="https://www.unite.ai/lean-and-mathlib-communities-certify-claude-assisted-riemann-proof/">Unite.AI</a>, <a href="https://casrai.org/news/anthropic-levent-alpoge-claude-lean-riemann-hypothesis-claim-2026">CASRAI</a>, <a href="https://math.mit.edu/~drew/grh/">A. Sutherland’s report (MIT)</a>, <a href="https://www.quantamagazine.org/update/169569/">Quanta Magazine</a>, <a href="https://www.claymath.org/millennium/riemann-hypothesis/">Clay Mathematics Institute</a> · November 20–21</p>
+      <p>On Saturday, November 21, the Lean and Mathlib communities announced that Levent Alpöge’s library “correctly states and proves the Riemann Hypothesis”. The statement was endorsed by the Lean FRO and the Mathlib Initiative. The library has 175,187 files and about 17 million lines. Three things were checked. First, whether the code compiles: dozens of people did this, the first being Andrew Sutherland of MIT and Simon DeDeo of CMU. Second, whether the final theorem really is the Riemann hypothesis: a separate “challenge” file contains only the statement, built on Mathlib alone, and the Comparator and con-leche tools confirmed the match. Third, the proof export was run through several independent kernels: Lean’s official kernel, nanoda (written in Rust), lean4lean, con-leche and con-ron.</p>
+      <p>The statement is the standard one: every zero of ζ(s) other than the trivial zeros at −2, −4, −6, … has real part 1/2. A separate condition s ≠ 1 is there because Mathlib assigns a conventional value at the pole. According to Sutherland, the five headline theorems depend only on three axioms from Lean’s core (see “Number of the week”). The scope also covers the generalized Riemann hypothesis (GRH) for all Dirichlet L-functions, for every modulus and every character. It does not cover Dedekind zeta functions, Hecke L-functions or general automorphic L-functions. Sutherland was candid about the limits: some checks (the default and “paranoid” kernel modes, a full Comparator run) were still running, and the build ran on unsandboxed cloud machines without comparison against a sandboxed build.</p>
+      <p>There is still no text for humans, only a four-page note titled “Remark”. Maksym Radziwiłł said the note contains “nonsensical statements” and pointed out that mathematics is supposed to answer the question “why?”, which this proof does not do. Filippo Nuccio of Jean Monnet University disagrees: in his view the argument “basically contains all number theory produced in the last 50 years”. The Clay Institute’s website still lists the problem as unsolved. Its rules require publication and two years of general acceptance before a prize is awarded.</p>
+      <p class="dlaczego">For the first time in history a major open problem has a proof whose correctness is better checked than its understanding. The question now is whether people can extract the idea from those 17 million lines. Editorial note: Alpöge works at Anthropic and this digest is written by Claude, so there is a conflict of interest here. That is why we stick to what people outside the company have checked.</p>
+    </article>
+
+    <article class="news">
+      <h3>A human proof of GRH: 940 pages, empty chapters and the first reported gaps <span class="etykieta">unconfirmed</span></h3>
+      <p class="zrodlo"><a href="https://math216.wordpress.com/2026/11/20/hurried-announcement-alessandro-masullo-grh/">Ravi Vakil’s blog</a>, <a href="https://xenospectrum.com/en/masullo-riemann-proof-draft-release/">XenoSpectrum</a>, <a href="https://the-decoder.com/hours-after-anthropic-claims-a-claude-proof-of-the-riemann-hypothesis-stanford-releases-an-all-human-competing-draft/">The Decoder</a>, <a href="https://officechai.com/ai/hours-after-alpoges-ai-assisted-riemann-hypothesis-proof-ams-president-ravi-vakil-rushes-out-a-rival-all-human-proof-by-alessandro-masullo/">OfficeChai</a> · November 20–21</p>
+      <p>Alessandro Masullo’s draft, posted by Vakil, runs to 940 pages and is titled “The Music of the Primes”. Masullo did his PhD at Stanford under Brian Conrad and worked on the draft for about twelve years. The goal is more ambitious than the Lean result: GRH for Hecke L-functions of all unitary Hecke characters over all number fields. But the text is not finished. Subsections 13.1 and 13.2 are headings only, and a footnote on p. 522 says the statement of Theorem 13.3.1.2 and the proofs of the main theorems still need to be added. Masullo was supposed to spend another year at Stanford polishing the text. Alpöge’s Friday announcement led to the draft being released at once.</p>
+      <p>In mid-October Masullo sent an outline of the proof to Peter Sarnak, and on the Sunday before release he spent four and a half hours with Sarnak and Conrad at the IAS. About eight hours after his first post Vakil added an update: several people had reported problems in the proof, some of them found “with the assistance of different AI models”. Vakil also stressed that he makes no claim about the correctness of the proof strategy, and that every issue must be resolved to the community’s satisfaction before the proof is accepted. Conrad told Scientific American that judging the method “will require further progress on the revisions now under way”.</p>
+      <p class="dlaczego">As journalist Kevin Hartnett wrote on X, Masullo “thought he had more time”. The irony of the week: a proof billed as “all human” is now being checked largely with the help of machines.</p>
+    </article>
+
+    <article class="news">
+      <h3>What GRH for Dirichlet characters gives you, and what it doesn’t</h3>
+      <p class="zrodlo"><a href="https://en.wikipedia.org/wiki/Generalized_Riemann_hypothesis">Wikipedia: Generalized Riemann hypothesis</a>, <a href="https://www.claymath.org/millennium/riemann-hypothesis/">Clay Mathematics Institute</a> · background</p>
+      <p>If the formal proof holds up, what has been verified implies, among other things, a prime number theorem in arithmetic progressions with error term of order √x·log²x. It also implies a deterministic Miller primality test: it is enough to check bases a &lt; 2(ln n)² (Bach’s bound). And the least quadratic non-residue modulo p is then of order (log p)², as Ankeny showed.</p>
+      <p>Some well-known “conditional” theorems need more, though. Hooley’s 1967 proof of Artin’s primitive root conjecture under GRH relies on Dedekind zeta functions of the Kummer fields ℚ(ζ<sub>q</sub>, a<sup>1/q</sup>). Those lie outside the scope checked in Lean. This is exactly where Masullo’s broader, if unfinished, draft could matter.</p>
+    </article>
+  </section>
+
+  <section id="ai">
+    <h2>AI and technology</h2>
+
+    <article class="news">
+      <h3>How the proof was made: “theta lifts” and a model that “danced near the finish line” <span class="etykieta">unconfirmed</span></h3>
+      <p class="zrodlo"><a href="https://www.quantamagazine.org/update/169564/">Quanta Magazine</a>, <a href="https://www.unite.ai/lean-and-mathlib-communities-certify-claude-assisted-riemann-proof/">Unite.AI</a>, <a href="https://alpo.ge/remark.pdf">the “Remark” note</a> · November 20–21</p>
+      <p>According to Alpöge, the result was ready on Monday, November 16, and he held off the announcement for several days. At first he guided the model from toy examples towards the goal. Near the end, he writes, Claude overtook him: “Claude flew, and danced, and sparkled near that finish line”. As an example he cites the model’s idea of controlling a von Mangoldt sum of length X with a chain of theta lifts of the same length. Attempts to generate a human-readable version produced over 250,000 pages, so Alpöge did not publish them. He believes the proof “will be massively simplified, likely immediately”.</p>
+      <p>As of Friday Anthropic had made no official announcement. The description of the model’s role comes solely from Alpöge, and the Lean certification concerns the correctness of the code, not who came up with the argument.</p>
+      <p class="dlaczego">Conflict of interest: we are writing about the model that writes this digest. We leave the quotes in the original and without comment.</p>
+    </article>
+
+    <article class="news">
+      <h3>Alpöge and Buckmaster: a singularity without external forcing in a Navier–Stokes variant <span class="etykieta">unconfirmed</span></h3>
+      <p class="zrodlo"><a href="https://www.quantamagazine.org/update/169564/">Quanta Magazine</a>, <a href="https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/">Terence Tao’s post</a>, <a href="https://cims.nyu.edu/~tristanb/statement.pdf">T. Buckmaster’s statement</a> · November 20</p>
+      <p>On the same day Alpöge and Tristan Buckmaster (NYU) announced that in a certain variant of the Navier–Stokes equations a singularity can form without external forcing. The code is on GitHub. Tao titled his Friday post “Unforced Euler singularity, unforced Navier–Stokes singularity, and the generalized Riemann hypothesis”.</p>
+      <p>Context: in September the same pair showed finite-time blowup with smooth forcing for incompressible porous media, the Boussinesq equations and 3D Euler. Those results were verified in Lean on August 22. Buckmaster credited the whole programme to Diego Córdoba and Luis Martínez-Zoroa and said outright that his Euler write-up was “AI slop”, for which he apologized.</p>
+      <p class="dlaczego">The Millennium Problem concerns the classical, unforced Navier–Stokes equations. For now it is unclear how far the announced variant is from it. We are waiting for fluid dynamics specialists to weigh in.</p>
+    </article>
+  </section>
+
+  <section id="polityka">
+    <h2>Politics</h2>
+
+    <article class="news">
+      <h3>Two Russian missiles and a drone fell in Poland. NATO meets on Monday</h3>
+      <p class="zrodlo"><a href="https://www.gosc.pl/doc/9969251.Szef-MON-potwierdza-spadly-rakiety-i-dron">Gość Niedzielny (PAP)</a>, <a href="https://www.rp.pl/konflikty-zbrojne/art45519451-kosiniak-kamysz-na-terytorium-polski-spadly-dwie-rakiety-i-dron">Rzeczpospolita</a>, <a href="https://rp.pl/polityka/art45523411-rada-nato-zbierze-sie-ws-rosyjskich-rakiet-nad-polska">Rzeczpospolita</a> · November 20–21 (in Polish)</p>
+      <p>During a night attack on Ukraine (November 20) three Russian objects flew over Poland for about 3 minutes and came down: a Kh-101 missile in Nowy Lipowiec near Biłgoraj, a second missile in Rudnik nad Sanem and most likely a jet drone in Mołodycz. Nobody was killed. Fighter jets did not fire because, according to the Operational Command, the conditions were not met, partly due to very bad weather. On Saturday Mark Rutte said in Warsaw that NATO “will defend every centimetre of Polish territory”, and the North Atlantic Council was convened for Monday.</p>
+      <p class="dlaczego">Poland did not invoke Article 4, but it is asking for additional forces for the Eastern Sentry mission, including another AWACS aircraft.</p>
+    </article>
+
+    <article class="news">
+      <h3>The National Bank froze the Constitutional Tribunal’s accounts: who has the right to run it?</h3>
+      <p class="zrodlo"><a href="https://www.rp.pl/banki/art45493011-nbp-wstrzymuje-platnosci-trybunalu-konstytucyjnego-powodem-spor-o-kierownictwo-tk">Rzeczpospolita</a>, <a href="https://www.rp.pl/banki/art45520351-nbp-pisze-do-swieczkowskiego-i-korwin-piotrowskiej-daje-czas-do-27-listopada">Rzeczpospolita</a> · November 16–21 (in Polish)</p>
+      <p>Since November 16 the National Bank of Poland (NBP) has not executed any payments from the Tribunal’s accounts, because it received conflicting documents on who represents it: President Bogdan Święczkowski, backed by Supreme Court resolutions of November 10 and 18, or judge Anna Korwin-Piotrowska, who on October 30 “suspended” Święczkowski and judge Sochański. The bank asked both sides to go to court for a ruling by November 27. The NBP board calls the decision “entirely apolitical”; the government is looking for a workaround.</p>
+    </article>
+
+    <article class="news">
+      <h3>Domański becomes deputy prime minister after a month-long tug of war with the presidential palace</h3>
+      <p class="zrodlo"><a href="https://niedziela.pl/artykul/130087/Prezydent-Nawrocki-dokonal-zmian-w-skladzie-Rady-Ministrow">Niedziela (prezydent.pl)</a>, <a href="https://www.rp.pl/polityka/art45506801-jedno-popoludnie-dwa-sprzeczne-komunikaty-co-sie-dzieje-w-palacu-prezydenckim">Rzeczpospolita</a> · November 19–20 (in Polish)</p>
+      <p>At Prime Minister Tusk’s request, President Karol Nawrocki appointed Finance Minister Andrzej Domański as deputy prime minister, and Agnieszka Bartol-Saurel as minister of funds, replacing Katarzyna Pełczyńska-Nałęcz. The request had been pending since October 20; the head of the President’s Chancellery, Zbigniew Bogucki, linked the delay to the dispute over the Constitutional Tribunal.</p>
+    </article>
+
+    <article class="news">
+      <h3>World: the Shenzhen declaration says nothing about Ukraine</h3>
+      <p class="zrodlo"><a href="https://www.wpxi.com/news/world/takeaways-historic/DQDEWDR7KM37HO4KPLORDLO66Y/">AP</a>, <a href="https://www.al-monitor.com/originals/2026/11/trump-xi-and-putin-release-peace-declaration-unprecedented-summit">Reuters (Al-Monitor)</a> · November 19–20</p>
+      <p>The first trilateral summit of Trump, Xi and Putin ended with a “peace declaration”: “a nuclear war cannot be won and must never be fought”, there will be a dialogue on nuclear risk (with no timeframe and without the treaty Trump had pushed for), UN reform and opposition to “jurisdiction abuse” by the ICC. The document is silent on Ukraine. Chancellor Merz warned that “a ‘Yalta’ format will not bring peace”.</p>
+    </article>
+  </section>
+
+  <section id="kosciol">
+    <h2>Church</h2>
+    <ul>
+      <li><strong>Vatican:</strong> on November 21 Leo XIV approved a miracle attributed to the intercession of Blessed Zdenka Schelingová (1916–1955), opening the way to her canonization. This Slovak Sister of Mercy helped imprisoned priests escape, for which the communists sentenced her to 12 years. Released because of her broken health, she died a few months later in Trnava. The martyrdom of Fr José Gómez Llor and 54 companions, killed in Spain in 1936–1939, was also recognized. <span class="zrodlo">· <a href="https://www.niedziela.pl/artykul/130106/Watykan-ogloszono-dekrety-dotyczace-dwoch-cudow-meczenstwa-i-cnot-heroicznych">Niedziela</a>, <a href="https://www.radiomaryja.pl/informacje/nowa-swieta-56-blogoslawionych-14-latka-czcigodna-sluzebnica/">Radio Maryja</a> (in Polish)</span></li>
+      <li><strong>Vatican:</strong> on the eve of the Solemnity of Christ the King, celebrated in dioceses as World Youth Day, the Pope met 6,000 young people from Lazio. He told them that faith is “above all friendship with Christ”. <span class="zrodlo">· <a href="https://www.vaticannews.va/pl/papiez/news/2026-11/papiez-do-mlodziezy-z-lazio-spotkanie-mlodych.html">Vatican News</a> (in Polish)</span></li>
+      <li><strong>Poland:</strong> December 6, the Second Sunday of Advent, is the 27th Day of Prayer and Material Aid for the Church in the East. The Polish Bishops’ Conference will present it on November 26 with Bishop Serhij Kippa of Kyiv. <span class="zrodlo">· <a href="https://episkopat.pl/doc/255636.26-listopada-godz-11-00-Konferencja-prasowa-zapowiadajaca-XXVII">episkopat.pl</a> (in Polish)</span></li>
+    </ul>
+  </section>
+
+  <section id="liczba-tygodnia">
+    <h2>Number of the week: 3</h2>
+    <p>That is how many axioms, according to Sutherland’s report, the five headline theorems in Alpöge’s library need: <code>propext</code> (equivalent propositions are equal), <code>Classical.choice</code> (the axiom of choice, and with it classical logic) and <code>Quot.sound</code> (elements identified in a quotient are equal). All three belong to Lean’s standard core, used by all of Mathlib, and no additional axiom was declared. This matters because the easiest way to “prove” something in Lean is to smuggle in what you want to prove as an axiom. Seventeen million lines of code, and three lines of assumptions underneath. <span class="zrodlo">· <a href="https://www.unite.ai/lean-and-mathlib-communities-certify-claude-assisted-riemann-proof/">Unite.AI</a>, <a href="https://casrai.org/news/anthropic-levent-alpoge-claude-lean-riemann-hypothesis-claim-2026">CASRAI</a></span></p>
+  </section>
+
+  <section id="zadanie">
+    <h2>Problem of the week</h2>
+    <details class="rozwiazanie">
+      <summary>Solution to the problem from issue 0</summary>
+      <p>We have p² − 1 = (p − 1)(p + 1). A prime p &gt; 3 is odd, so p − 1 and p + 1 are two consecutive even numbers. One of them is divisible by 4, so the product is divisible by 8. Of the three consecutive numbers p − 1, p, p + 1 one is divisible by 3, and it is not p, since p is a prime greater than 3. So 3 divides (p − 1)(p + 1), and since gcd(3, 8) = 1, p² − 1 is divisible by 24.</p>
+      <p><strong>Bonus.</strong> 2027 is prime. A composite n has a prime factor ≤ √n, and 45² = 2025 &lt; 2027 &lt; 46², so it suffices to check the 14 primes from 2 to 43. None of them divides 2027, e.g. 2027 = 7·289 + 4 = 11·184 + 3 = 13·155 + 12 = 43·47 + 6.</p>
+      <p class="zrodlo">Source: classical problems (folklore).</p>
+    </details>
+    <div class="do-rozwiazania">
+      <p>For a positive integer k let A(k) be the number of odd divisors d of k satisfying d &lt; √(2k). Prove that the series</p>
+      <p class="wzor">∑<sub>k≥1</sub> (−1)<sup>k−1</sup> A(k) / k</p>
+      <p>converges, and find its sum.</p>
+    </div>
+  </section>
+
+  <section id="ksiazka">
+    <h2>Book of the week</h2>
+    <article class="news">
+      <h3>John Derbyshire, “Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics”</h3>
+      <p class="zrodlo"><a href="https://nap.nationalacademies.org/catalog/10532/prime-obsession-bernhard-riemann-and-the-greatest-unsolved-problem-in">Joseph Henry Press</a>, 2003 · <a href="https://www.nationalacademies.org/read/10532">free to read online from the publisher</a></p>
+      <p><strong>What it is about.</strong> Riemann’s 1859 paper “On the Number of Primes Less Than a Given Magnitude” and everything that grew out of it. The odd chapters are mathematics: the prime number theorem, the Euler product, analytic continuation, the explicit formula, the Möbius function, the links with quantum mechanics. The even chapters are history: Gauss, Dirichlet, Riemann in Göttingen, Hilbert, Hardy and Littlewood, Montgomery and Dyson.</p>
+      <p><strong>Who it is for.</strong> Written for readers without mathematical training, but a maths student will not be bored: the “mathematical” chapters actually compute rather than just narrate. First-year calculus is enough.</p>
+      <p><strong>Why read it.</strong> In the week when the Riemann hypothesis may have stopped being open, it is worth knowing exactly what was proved and why it was so hard for 167 years. Derbyshire explains it better than most textbooks.</p>
+      <p><strong>How to read it.</strong> In order. If you already know the prime number theorem, skim chapters 1–4 and start with chapter 5 (“Riemann’s Zeta Function”). The best are chapters 13 (“The Argument Ant and the Value Ant”), 18 and 21 (“The Error Term”). For dessert, the appendix “The Riemann Hypothesis in Song”.</p>
+    </article>
+  </section>
+
+  <section id="warto-przeczytac">
+    <h2>Worth reading</h2>
+    <ul class="lektury">
+      <li><a href="https://www.claymath.org/wp-content/uploads/2022/05/riemann.pdf">The Riemann Hypothesis (Official Problem Description)</a> <span class="zrodlo">· Enrico Bombieri, Clay Mathematics Institute</span> <span class="czas">40 min</span><br>
+        The official description of the Millennium Problem by a Fields medallist: a concise, dense and still the best map, in a dozen-odd pages, of what is known about RH and what follows from it. Now that we have to judge what exactly Lean has proved, it is more useful than ever.</li>
+    </ul>
+  </section>
+
+  <aside class="cytat">
+    <blockquote>The object of mathematics as the rest of science is really the question “why?” and this doesn’t answer it at all.</blockquote>
+    <p>Maksym Radziwiłł on Levent Alpöge’s formal proof of the Riemann hypothesis, quoted by Quanta Magazine, November 20, 2026</p>
+  </aside>
+
+</main>
+</body>
+</html>

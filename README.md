@@ -35,8 +35,10 @@ push na main  →  serwer: cron co 30 min `git pull`  →  campusflorum.pl/praso
    publikacji** (zwykle niedziela kończąca omawiany tydzień).
 2. Wypełnij `<head>` (patrz niżej) i treść. Komentarze `<!-- … -->` z szablonu
    możesz usunąć.
-3. Sprawdź listę kontrolną na końcu tego pliku.
-4. `git add wydania/RRRR-MM-DD.html && git commit -m "Prasówka nr N (RRRR-MM-DD)" && git push`
+3. Przetłumacz gotowe wydanie na angielski do `wydania/en/RRRR-MM-DD.html`
+   (patrz „Wersja angielska” niżej).
+4. Sprawdź listę kontrolną na końcu tego pliku.
+5. `git add wydania/RRRR-MM-DD.html wydania/en/RRRR-MM-DD.html && git commit -m "Prasówka nr N (RRRR-MM-DD)" && git push`
 
 Jedno wydanie na tydzień, jeden plik na wydanie. Nie zmieniaj nazw już
 opublikowanych plików (zepsułoby to linki). Poprawki błędów w starych
@@ -44,6 +46,29 @@ wydaniach są w porządku.
 
 **Szkic:** plik, którego nazwa zaczyna się od `_` (np. `wydania/_2026-11-29.html`),
 nie jest wyświetlany w archiwum.
+
+## Wersja angielska
+
+Każde wydanie ma angielski odpowiednik `wydania/en/RRRR-MM-DD.html` (ta sama
+data). Czytelnik przełącza się przyciskiem PL/EN, który dokłada strona
+(kod: `strona/przelacznik-jezyka.js`, do wgrania w `/prasowka/prasowka.js`
+i `.css` na serwerze). Archiwum `/prasowka/` pokazuje wydania polskie.
+
+- Wersja polska jest pierwotna: angielska to **wierne tłumaczenie** tej samej
+  treści, bez dodawania ani usuwania wiadomości. Poprawka w jednej wersji =
+  ta sama poprawka w drugiej.
+- `<html lang="en">`; `<head>` jak w polskim pliku (numer i okres te same),
+  tylko `<title>`, `<h1>` i `description` po angielsku.
+- Struktura, klasy i `id` działów **identyczne** jak w wersji polskiej.
+  Tłumaczysz tylko tekst, w tym `<h2>`: In brief, Mathematics, AI and
+  technology, Politics, Church, Number of the week: …, Problem of the week,
+  Book of the week, Worth reading. Etykiety: `preprint`, `announcement`,
+  `unconfirmed`, `peer-reviewed`, `Lean`. Daty w `p.zrodlo` po angielsku
+  („November 21”).
+- Linki te same co w wersji polskiej. Przy źródłach w języku polskim można
+  dopisać „(in Polish)”.
+- Cytaty: oryginały angielskie zostają bez zmian; cytaty przetłumaczone
+  z polskiego zaznacz w podpisie („transl. ours”), jeśli to cytat tygodnia.
 
 ## Tematyka i proporcje — najważniejsze
 
@@ -284,3 +309,4 @@ Obrazki tylko, gdy naprawdę coś pokazują i licencja pozwala: plik
 - [ ] Zadanie trudne, bez podpowiedzi; jest rozwiązanie zadania z poprzedniego numeru (ze źródłem).
 - [ ] Książka nie powtarza się.
 - [ ] `id` działów dokładnie jak w tabeli; plik jest poprawnym HTML-em (`&amp;` w adresach z `&`).
+- [ ] Jest `wydania/en/RRRR-MM-DD.html`: `lang="en"`, te same numer, okres, `id`, działy i linki co w wersji polskiej; poprawny HTML.
